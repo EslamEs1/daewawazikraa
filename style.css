@@ -1,0 +1,1577 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: #fff;
+    min-height: 100vh;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    padding: 40px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* Hero Section Images */
+.hero-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.3;
+    filter: brightness(0.7);
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(44, 62, 80, 0.9) 0%, rgba(52, 73, 94, 0.8) 100%);
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+}
+
+.hero-image {
+    position: relative;
+    z-index: 3;
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.hero-description {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.memorial-frame {
+    background: rgba(255,255,255,0.1);
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.memorial-photo {
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    display: block;
+    margin: 0 auto;
+}
+
+/* Custom Audio Player */
+.custom-audio {
+    width: 100%;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+}
+
+/* Section Colors - Updated */
+
+.adhkar-section {
+    background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+    color: white;
+    padding: 40px 0;
+}
+
+.quran-section {
+    background: #fff;
+    color: #2c3e50;
+    padding: 40px 0;
+}
+
+.holy-quran-section {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    padding: 40px 0;
+}
+
+.tafsir-section {
+    background: #fff;
+    color: #2c3e50;
+    padding: 40px 0;
+}
+
+.learn-islam-section {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    padding: 40px 0;
+}
+
+.islamic-heritage-section {
+    background: #fff;
+    color: #2c3e50;
+    padding: 40px 0;
+}
+
+.muslim-library-section {
+    background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+    color: white;
+    padding: 40px 0;
+}
+
+.library-section {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    padding: 40px 0;
+}
+
+.library-section .section-title {
+    color: white;
+}
+
+.hadith-section {
+    background: #fff;
+    color: #2c3e50;
+    padding: 40px 0;
+}
+
+.videos-section {
+    background: #fff;
+    color: #2c3e50;
+    padding: 40px 0;
+}
+
+.ruqyah-section {
+    background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+    color: white;
+    padding: 40px 0;
+}
+
+.deaf-portal-section {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    padding: 40px 0;
+}
+
+.hesn-section {
+    background: #fff;
+    color: #2c3e50;
+    padding: 40px 0;
+}
+
+
+
+/* Section Titles - Simplified */
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    font-weight: 700;
+    color: inherit;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.section-title2 {
+    color: #2c3e50;
+}
+
+/* White section titles */
+.quran-section .section-title,
+.tafsir-section .section-title,
+.islamic-heritage-section .section-title,
+.hadith-section .section-title,
+.videos-section .section-title,
+.hesn-section .section-title {
+    color: #2c3e50;
+}
+
+/* White section content */
+.quran-section .quran-content h3,
+.quran-section .quran-content p,
+.tafsir-section .tafsir-info h4,
+.tafsir-section .tafsir-info p,
+.islamic-heritage-section .heritage-content h3,
+.islamic-heritage-section .heritage-content p,
+.hadith-section .search-container input,
+.hadith-section .search-container button {
+    color: #2c3e50;
+}
+
+.section-description {
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+    color: inherit;
+    line-height: 1.6;
+}
+
+/* White section descriptions */
+.quran-section .section-description,
+.tafsir-section .section-description,
+.islamic-heritage-section .section-description,
+.hadith-section .section-description,
+.videos-section .section-description,
+.hesn-section .section-description {
+    color: #2c3e50;
+}
+
+/* Cards - Simplified */
+.adhkar-card {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    padding: 25px 20px;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.adhkar-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.adhkar-card.morning {
+    background: rgba(231, 76, 60, 0.2);
+    border-color: rgba(231, 76, 60, 0.3);
+}
+
+.adhkar-card.evening {
+    background: rgba(142, 68, 173, 0.2);
+    border-color: rgba(142, 68, 173, 0.3);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    opacity: 0.9;
+    color: #fff;
+}
+
+.adhkar-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: #fff;
+}
+
+/* Tasbih Cards - Simplified */
+.tasbih-card {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    padding: 20px 15px;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.tasbih-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.tasbih-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: white;
+}
+
+.tasbih-btn {
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.3);
+    color: white;
+    padding: 10px 25px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.tasbih-btn:hover {
+    background: rgba(255,255,255,0.3);
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.tasbih-counter {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffd700;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+
+
+/* Video Cards - Simplified */
+.video-card {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* White section cards */
+.videos-section .video-card,
+.hesn-section .hesn-buttons-container {
+    background: rgba(44, 62, 80, 0.1);
+    border: 1px solid rgba(44, 62, 80, 0.2);
+}
+
+.video-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Video Container */
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    border-radius: 15px 15px 0 0;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.video-info {
+    padding: 15px;
+    text-align: center;
+}
+
+.video-info h4 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.video-info p {
+    font-size: 0.9rem;
+    margin: 0;
+    opacity: 0.9;
+    color: #fff;
+}
+
+/* White section video info */
+.videos-section .video-info h4,
+.videos-section .video-info p {
+    color: #2c3e50;
+}
+
+/* Hesn Buttons - Simplified */
+.hesn-buttons-container {
+    max-height: 400px;
+    overflow-y: auto;
+    border-radius: 15px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 15px;
+    margin-top: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.hesn-btn {
+    background: rgba(255,255,255,0.1);
+    border: 2px solid rgba(255,255,255,0.3);
+    color: white;
+    padding: 12px 15px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: right;
+    backdrop-filter: blur(10px);
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+/* White section hesn buttons */
+.hesn-section .hesn-btn {
+    background: rgba(44, 62, 80, 0.1);
+    border: 2px solid rgba(44, 62, 80, 0.3);
+    color: #2c3e50;
+}
+
+.hesn-btn:hover {
+    background: rgba(255,255,255,0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.hesn-btn.active {
+    background: rgba(255,255,255,0.25);
+    border-color: #fff;
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* White section hesn button states */
+.hesn-section .hesn-btn:hover {
+    background: rgba(44, 62, 80, 0.2);
+}
+
+.hesn-section .hesn-btn.active {
+    background: rgba(44, 62, 80, 0.25);
+    border-color: #2c3e50;
+    color: #2c3e50;
+}
+
+/* Audio Player - Simplified */
+.audio-player-container {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+        margin-bottom: 20px;
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.current-playing {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: #fff;
+    font-weight: 600;
+}
+
+/* White section current playing */
+.hesn-section .current-playing {
+    color: #2c3e50;
+}
+
+/* Library Cards - Simplified */
+.library-card {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.library-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* Library Card Images */
+.card-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    border-radius: 15px 15px 0 0;
+}
+
+.library-card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+.card-content {
+    padding: 15px;
+    text-align: center;
+}
+
+.card-content h4 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: white;
+}
+
+.card-content p {
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+    opacity: 0.9;
+    color: white;
+}
+
+/* Buttons - Simplified */
+.btn-primary {
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.3);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+/* White section buttons */
+.quran-section .btn-primary,
+.tafsir-section .btn-primary,
+.islamic-heritage-section .btn-primary,
+.hadith-section .btn-primary,
+.videos-section .btn-primary,
+.hesn-section .btn-primary {
+    background: rgba(44, 62, 80, 0.2);
+    border: 2px solid rgba(44, 62, 80, 0.3);
+    color: #2c3e50;
+}
+
+.btn-primary:hover {
+    background: rgba(255,255,255,0.3);
+    transform: scale(1.05);
+    color: white;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* White section button hover */
+.quran-section .btn-primary:hover,
+.tafsir-section .btn-primary:hover,
+.islamic-heritage-section .btn-primary:hover,
+.hadith-section .btn-primary:hover,
+.videos-section .btn-primary:hover,
+.hesn-section .btn-primary:hover {
+    background: rgba(44, 62, 80, 0.3);
+    color: #2c3e50;
+}
+
+.btn-outline-primary {
+    border: 2px solid rgba(255,255,255,0.3);
+    color: rgba(255,255,255,0.9);
+    background: transparent;
+    padding: 8px 15px;
+    border-radius: 15px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.btn-outline-primary:hover {
+    background: rgba(255,255,255,0.2);
+    color: white;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Footer - Simplified */
+.footer-section {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+}
+
+.footer-text {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.footer-subtext {
+    font-size: 1rem;
+    opacity: 0.8;
+    color: #fff;
+}
+
+/* Deceased Name Styling */
+.deceased-name {
+    color: #fff;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Responsive Design - Mobile First */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .adhkar-card {
+        padding: 20px 15px;
+    }
+    
+    .tasbih-card {
+        margin-bottom: 15px;
+    }
+    
+    .prayer-card {
+        padding: 20px 15px;
+    }
+    
+    .prayer-card h4 {
+        font-size: 1.1rem;
+    }
+    
+    .prayer-text {
+        font-size: 0.9rem;
+    }
+    
+    .nav-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 0.8rem;
+    }
+    
+    .hesn-buttons-container {
+        max-height: 350px;
+        padding: 10px;
+    }
+    
+    .hesn-btn {
+        min-height: 50px;
+        font-size: 0.8rem;
+        padding: 10px 12px;
+    }
+    
+    .video-info h4 {
+        font-size: 1rem;
+    }
+    
+    .video-info p {
+        font-size: 0.85rem;
+    }
+    
+    .card-content h4 {
+        font-size: 1rem;
+    }
+    
+    .card-content p {
+        font-size: 0.85rem;
+    }
+    
+    .memorial-photo {
+        max-width: 250px;
+    }
+    
+    .card-image img {
+        height: 150px;
+    }
+    
+    .deaf-portal-img {
+        max-width: 250px;
+    }
+    
+    .quran-img,
+    .heritage-img,
+    .library-img,
+    .learn-img {
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .memorial-frame {
+        transform: none;
+        margin-top: 20px;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+    }
+    
+    .prayer-card {
+        padding: 15px 12px;
+    }
+    
+    .prayer-card h4 {
+        font-size: 1rem;
+    }
+    
+    .prayer-text {
+        font-size: 0.85rem;
+    }
+    
+    .nav-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 0.7rem;
+    }
+    
+    .hesn-buttons-container {
+        max-height: 300px;
+        padding: 8px;
+    }
+    
+    .hesn-btn {
+        min-height: 45px;
+        font-size: 0.75rem;
+        padding: 8px 10px;
+    }
+    
+    .video-info h4 {
+        font-size: 0.9rem;
+    }
+    
+    .video-info p {
+        font-size: 0.8rem;
+    }
+    
+    .card-content h4 {
+        font-size: 0.9rem;
+    }
+    
+    .card-content p {
+        font-size: 0.8rem;
+    }
+    
+    .btn-primary {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+    
+    .btn-outline-primary {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+    
+    .memorial-photo {
+        max-width: 200px;
+    }
+    
+    .card-image img {
+        height: 120px;
+    }
+    
+    .deaf-portal-img {
+        max-width: 200px;
+    }
+    
+    .quran-img,
+    .heritage-img,
+    .library-img,
+    .learn-img {
+        max-width: 250px;
+    }
+    
+    .video-container {
+        padding-bottom: 56.25%; /* Maintain 16:9 ratio */
+    }
+}
+
+/* Animations - Simplified */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-content,
+.adhkar-card,
+.tasbih-card,
+.prayer-card,
+.video-card,
+.library-card {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Custom Scrollbar */
+.hesn-buttons-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.hesn-buttons-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+}
+
+.hesn-buttons-container::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+}
+
+.hesn-buttons-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+} 
+
+/* Image Container Improvements */
+.hero-image,
+.portal-image,
+.holy-quran-image,
+.heritage-image,
+.library-image,
+.learn-image {
+    text-align: center;
+    padding: 15px;
+}
+
+/* Frame Improvements */
+.memorial-frame,
+.quran-frame,
+.heritage-frame,
+.library-frame,
+.learn-frame {
+    position: relative;
+    display: inline-block;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    max-width: 100%;
+}
+
+.memorial-frame:hover,
+.quran-frame:hover,
+.heritage-frame:hover,
+.library-frame:hover,
+.learn-frame:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* Overlay Improvements */
+.quran-overlay,
+.heritage-overlay,
+.library-overlay,
+.learn-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(44, 62, 80, 0.8);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.quran-frame:hover .quran-overlay,
+.heritage-frame:hover .heritage-overlay,
+.library-frame:hover .library-overlay,
+.learn-frame:hover .learn-overlay {
+    opacity: 1;
+}
+
+.quran-overlay i,
+.heritage-overlay i,
+.library-overlay i,
+.learn-overlay i {
+    color: white;
+    font-size: 1.5rem;
+    animation: pulse 2s infinite;
+}
+
+/* Image Loading and Fallback */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* Specific Image Fixes */
+.memorial-photo {
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
+}
+
+.deaf-portal-img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
+}
+
+.quran-img,
+.heritage-img,
+.library-img,
+.learn-img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
+}
+
+/* Card Images */
+.card-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px 15px 0 0;
+}
+
+.card-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    border-radius: 15px 15px 0 0;
+    display: block;
+}
+
+.library-card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+/* Video Container Fix */
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    border-radius: 15px 15px 0 0;
+    overflow: hidden;
+    background: #000;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 15px 15px 0 0;
+}
+
+/* Frame Containers */
+.memorial-frame,
+.quran-frame,
+.heritage-frame,
+.library-frame,
+.learn-frame {
+    position: relative;
+    display: inline-block;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    max-width: 100%;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.memorial-frame:hover,
+.quran-frame:hover,
+.heritage-frame:hover,
+.library-frame:hover,
+.learn-frame:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* Overlay Effects */
+.quran-overlay,
+.heritage-overlay,
+.library-overlay,
+.learn-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(44, 62, 80, 0.8);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.quran-frame:hover .quran-overlay,
+.heritage-frame:hover .heritage-overlay,
+.library-frame:hover .library-overlay,
+.learn-frame:hover .learn-overlay {
+    opacity: 1;
+}
+
+.quran-overlay i,
+.heritage-overlay i,
+.library-overlay i,
+.learn-overlay i {
+    color: white;
+    font-size: 1.5rem;
+    animation: pulse 2s infinite;
+}
+
+/* Image Container Improvements */
+.hero-image,
+.portal-image,
+.holy-quran-image,
+.heritage-image,
+.library-image,
+.learn-image {
+    text-align: center;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Responsive Image Adjustments */
+@media (max-width: 768px) {
+    .memorial-photo {
+        max-width: 250px;
+        height: auto;
+    }
+    
+    .card-image img {
+        height: 150px;
+    }
+    
+    .deaf-portal-img {
+        max-width: 250px;
+        height: auto;
+    }
+    
+    .quran-img,
+    .heritage-img,
+    .library-img,
+    .learn-img {
+        max-width: 300px;
+        height: auto;
+    }
+    
+    .video-container {
+        padding-bottom: 56.25%;
+    }
+}
+
+@media (max-width: 576px) {
+    .memorial-photo {
+        max-width: 200px;
+        height: auto;
+    }
+    
+    .card-image img {
+        height: 120px;
+    }
+    
+    .deaf-portal-img {
+        max-width: 200px;
+        height: auto;
+    }
+    
+    .quran-img,
+    .heritage-img,
+    .library-img,
+    .learn-img {
+        max-width: 250px;
+    height: auto;
+    }
+    
+    .video-container {
+        padding-bottom: 56.25%;
+    }
+    
+    .memorial-frame,
+    .quran-frame,
+    .heritage-frame,
+    .library-frame,
+    .learn-frame {
+        transform: none;
+        margin-top: 15px;
+    }
+    
+    .memorial-frame:hover,
+    .quran-frame:hover,
+    .heritage-frame:hover,
+    .library-frame:hover,
+    .learn-frame:hover {
+        transform: translateY(-5px) scale(1.01);
+    }
+}
+
+/* Loading State for Images */
+img:not([src]),
+img[src=""] {
+    background: linear-gradient(90deg, #fff 25%, #27ae60 50%, #fff 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Image Error Fallback */
+img[src*="placeholder"],
+img[src*="error"] {
+    background: #fff;
+    border: 2px dashed #2c3e50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    color: #2c3e50;
+    font-size: 0.9rem;
+}
+
+/* Ensure proper aspect ratios */
+.aspect-ratio-16-9 {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+}
+
+.aspect-ratio-4-3 {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 75%;
+}
+
+.aspect-ratio-1-1 {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+} 
+
+/* Prayers and Memories Section - Fixed */
+.prayers-memories-section {
+    background: white;
+    color: #2c3e50;
+    padding: 40px 0;
+    min-height: auto;
+}
+
+.prayers-container {
+    position: relative;
+    min-height: 300px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.prayer-card {
+    background: rgba(44, 62, 80, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 25px 20px;
+    text-align: center;
+    border: 1px solid rgba(44, 62, 80, 0.2);
+    opacity: 0;
+    transform: translateX(30px);
+    transition: all 0.5s ease;
+    visibility: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.prayer-card.active {
+    opacity: 1;
+    transform: translateX(0);
+    visibility: visible;
+    position: relative;
+}
+
+.prayer-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #2c3e50;
+    animation: pulse 2s infinite;
+}
+
+.prayer-card h4 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #2c3e50;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.prayer-text {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    opacity: 0.9;
+    color: #34495e;
+}
+
+.memory-text {
+    background: rgba(44, 62, 80, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 15px;
+    border-left: 3px solid #2c3e50;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.memory-text i {
+    color: #2c3e50;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.memory-text p {
+    font-style: italic;
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #34495e;
+}
+
+.prayer-navigation {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.nav-btn {
+    background: rgba(44, 62, 80, 0.1);
+    border: 2px solid rgba(44, 62, 80, 0.3);
+    color: #2c3e50;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-btn:hover {
+    background: rgba(44, 62, 80, 0.2);
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.nav-btn.active {
+    background: #2c3e50;
+    color: white;
+    border-color: #2c3e50;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Responsive fixes for prayers section */
+@media (max-width: 768px) {
+    .prayers-container {
+        min-height: 250px;
+    }
+    
+    .prayer-card {
+        padding: 20px 15px;
+        max-width: 100%;
+    }
+    
+    .prayer-card h4 {
+        font-size: 1.1rem;
+    }
+    
+    .prayer-text {
+        font-size: 0.9rem;
+    }
+    
+    .nav-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .prayers-container {
+        min-height: 200px;
+    }
+    
+    .prayer-card {
+        padding: 15px 12px;
+    }
+    
+    .prayer-card h4 {
+        font-size: 1rem;
+    }
+    
+    .prayer-text {
+        font-size: 0.85rem;
+    }
+    
+    .nav-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 0.7rem;
+    }
+    
+    .prayer-navigation {
+        gap: 5px;
+    }
+}
+
+/* Holy Quran Section - Fixed Button */
+.holy-quran-section {
+    background: #fff;
+    color: #2c3e50;
+    padding: 40px 0;
+}
+
+.quran-btn {
+    background: #2c3e50;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(44, 62, 80, 0.2);
+}
+
+.quran-btn:hover {
+    background: #34495e;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(44, 62, 80, 0.3);
+    color: white;
+    text-decoration: none;
+}
+
+.quran-btn i {
+    font-size: 1rem;
+}
+
+/* Tasbih Section - Updated Colors */
+.tasbih-section {
+    background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+    color: white !important;
+    padding: 40px 0;
+}
+
+
+.tasbih-section h1 {
+    color: white !important;
+}
+
+.tasbih-card {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    padding: 20px 15px;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.tasbih-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.tasbih-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: white;
+}
+
+.tasbih-btn {
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.3);
+    color: white;
+    padding: 10px 25px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.tasbih-btn:hover {
+    background: rgba(255,255,255,0.3);
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.tasbih-counter {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #27ae60;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Library Section - Updated Colors */
+.library-section {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    padding: 40px 0;
+}
+
+.library-section .section-title {
+    color: white;
+}
+
+.library-card {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.library-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.card-content h4 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: white;
+}
+
+.card-content p {
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+    opacity: 0.9;
+    color: white;
+}
+
+.btn-outline-primary {
+    border: 2px solid rgba(255,255,255,0.3);
+    color: rgba(255,255,255,0.9);
+    background: transparent;
+    padding: 8px 15px;
+    border-radius: 15px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.btn-outline-primary:hover {
+    background: rgba(255,255,255,0.2);
+    color: white;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+} 
