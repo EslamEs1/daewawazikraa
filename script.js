@@ -51,8 +51,8 @@ document.addEventListener('DOMContentLoaded', function() {
     Object.values(tasbihButtons).forEach(outputId => {
         const counter = document.getElementById(outputId);
         if (counter) {
-            const savedCount = localStorage.getItem(outputId) || 0;
-            counter.textContent = savedCount;
+        const savedCount = localStorage.getItem(outputId) || 0;
+        counter.textContent = savedCount;
         }
     });
 
@@ -62,35 +62,35 @@ document.addEventListener('DOMContentLoaded', function() {
         const counter = document.getElementById(outputId);
         
         if (button && counter) {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                // Get current count
-                let currentCount = parseInt(counter.textContent);
-                
-                // Increment count
-                currentCount++;
-                
-                // Update display
-                counter.textContent = currentCount;
-                
-                // Save to localStorage
-                localStorage.setItem(outputId, currentCount);
-                
-                // Add visual feedback
-                button.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    button.style.transform = 'scale(1)';
-                }, 100);
-                
-                // Add counter animation
-                counter.style.transform = 'scale(1.2)';
-                counter.style.color = '#ff6b6b';
-                setTimeout(() => {
-                    counter.style.transform = 'scale(1)';
-                    counter.style.color = '#ffd700';
-                }, 200);
-            });
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Get current count
+            let currentCount = parseInt(counter.textContent);
+            
+            // Increment count
+            currentCount++;
+            
+            // Update display
+            counter.textContent = currentCount;
+            
+            // Save to localStorage
+            localStorage.setItem(outputId, currentCount);
+            
+            // Add visual feedback
+            button.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                button.style.transform = 'scale(1)';
+            }, 100);
+            
+            // Add counter animation
+            counter.style.transform = 'scale(1.2)';
+            counter.style.color = '#ff6b6b';
+            setTimeout(() => {
+                counter.style.transform = 'scale(1)';
+                counter.style.color = '#ffd700';
+            }, 200);
+        });
         }
     });
 
@@ -563,10 +563,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const hadithSearchInput = document.getElementById('hadithSearch');
     if (hadithSearchInput) {
         hadithSearchInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                searchHadith();
-            }
-        });
+        if (e.key === 'Enter') {
+            searchHadith();
+        }
+    });
     }
 
     // Notification system
@@ -616,4 +616,4 @@ document.addEventListener('DOMContentLoaded', function() {
     updateCounters();
     generateSurahButtons();
     updateInteractionCounters();
-});
+}); 

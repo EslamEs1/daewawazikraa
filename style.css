@@ -13,6 +13,47 @@ body {
     min-height: 100vh;
 }
 
+
+
+/* Deceased Photo Styles */
+.deceased-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #fff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.deceased-photo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+/* Header Content Styles */
+.surah-header-content,
+.interaction-header-content,
+.hesn-header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.surah-text,
+.interaction-text,
+.hesn-text {
+    flex: 1;
+}
+
+.surah-photo,
+.interaction-photo,
+.hesn-photo {
+    flex-shrink: 0;
+}
+
 /* Hero Section */
 .hero-section {
     background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
@@ -638,7 +679,7 @@ body {
 
 /* Deceased Name Styling */
 .deceased-name {
-    color: #000;
+    color: #ff6c00;
     font-weight: 600;
     text-shadow: 0 1px 2px rgba(0,0,0,0.3);
 }
@@ -676,6 +717,10 @@ body {
     .prayer-text {
         font-size: 0.9rem;
     }
+    iframe{
+    padding:20px;
+    height: 250px;   
+}
     
     .nav-btn {
         width: 35px;
@@ -1594,11 +1639,15 @@ img[src*="error"] {
 /* Responsive Design for New Sections */
 @media (max-width: 768px) {
     .counter-stats .row {
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
     }
     
     .stat-item {
-        margin-bottom: 15px;
+        margin-bottom: 10px;
+        flex: 1;
+        min-width: 120px;
     }
     
     .juz-grid {
@@ -1743,6 +1792,17 @@ img[src*="error"] {
     margin-bottom: 40px;
 }
 
+.surah-stats .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.surah-stats .col-md-4 {
+    flex: 1;
+    min-width: 150px;
+}
+
 .surah-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
@@ -1798,16 +1858,30 @@ img[src*="error"] {
 /* Responsive Design for New Sections */
 @media (max-width: 768px) {
     .counter-stats .row {
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
     }
     
     .stat-item {
-        margin-bottom: 15px;
+        margin-bottom: 10px;
+        flex: 1;
+        min-width: 120px;
     }
     
     .surah-grid {
         grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
         gap: 8px;
+    }
+    
+    .surah-stats .row {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .surah-stats .col-md-4 {
+        flex: 1;
+        min-width: 100px;
     }
     
     .surah-btn {
@@ -1839,6 +1913,20 @@ img[src*="error"] {
         flex-direction: column;
         gap: 10px;
     }
+    
+    /* Header Content Responsive */
+    .surah-header-content,
+    .interaction-header-content,
+    .hesn-header-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .deceased-photo {
+        width: 70px;
+        height: 70px;
+    }
 }
 
 @media (max-width: 576px) {
@@ -1852,6 +1940,24 @@ img[src*="error"] {
     
     .surah-grid {
         grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .surah-stats .row {
+        flex-direction: row;
+        gap: 5px;
+    }
+    
+    .surah-stats .col-md-4 {
+        flex: 1;
+        min-width: 80px;
+    }
+    
+    .stat-number {
+        font-size: 1.5rem;
+    }
+    
+    .stat-label {
+        font-size: 0.8rem;
     }
     
     .surah-btn {
@@ -1882,5 +1988,25 @@ img[src*="error"] {
     
     .counter-item {
         font-size: 0.8rem;
+    }
+    
+    /* Small Screen Header Content */
+    .surah-header-content,
+    .interaction-header-content,
+    .hesn-header-content {
+        gap: 10px;
+    }
+    
+    .deceased-photo {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    .section-description {
+        font-size: 0.9rem;
     }
 } 
