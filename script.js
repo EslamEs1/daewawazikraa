@@ -52,8 +52,6 @@ document.addEventListener("DOMContentLoaded", function () {
             const data = await response.json();
             if (data && !data.error) {
                 sharedData = data;
-                console.log('Loaded shared data:', sharedData);
-                console.log('Read surahs count:', (sharedData.quran.readSurahs || []).length);
                 updateAllCounters();
                 // Update surah buttons after loading data
                 generateSurahButtons();
@@ -193,11 +191,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Refresh shared data every 30 seconds
     setInterval(loadSharedData, 30000);
-    
-    // Debug: Log shared data every 10 seconds
-    setInterval(() => {
-        console.log('Current shared data:', sharedData);
-    }, 10000);
     
     // Initialize surah buttons after a short delay to ensure DOM is ready
     setTimeout(() => {
@@ -361,8 +354,6 @@ document.addEventListener("DOMContentLoaded", function () {
         
         // Get current read surahs
         const readSurahs = sharedData.quran.readSurahs || [];
-        console.log('Generating surah buttons with read surahs:', readSurahs);
-        console.log('Total surahs to generate:', surahNames.length);
         
         surahNames.forEach((name, index) => {
             const surahBtn = document.createElement("button");
@@ -374,7 +365,6 @@ document.addEventListener("DOMContentLoaded", function () {
             if (readSurahs.includes(index + 1)) {
                 surahBtn.classList.add("read");
                 surahBtn.textContent = name + " ✓";
-                console.log(`Surah ${name} (${index + 1}) marked as read`);
             }
             surahBtn.addEventListener("click", function () {
                 if (!(sharedData.quran.readSurahs || []).includes(index + 1)) {
@@ -455,6 +445,8 @@ document.addEventListener("DOMContentLoaded", function () {
             if (result.success) {
                 sharedData = result.data;
                 updateAllCounters();
+            } else {
+                console.log('Error updating interaction:', result);
             }
         } catch (error) {
             console.log('Error updating interaction counter:', error);
@@ -775,114 +767,12 @@ document.addEventListener("DOMContentLoaded", function () {
     loadSharedData();
     generateSurahButtons();
 });
-function initScrollAnimations() {
-    const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("animate");
-                const animatedChildren = entry.target.querySelectorAll(".animated");
-                animatedChildren.forEach((child, index) => {
-                    setTimeout(() => {
-                        child.classList.add("animate");
-                    }, index * 100);
-                });
-            }
-        });
-    }, observerOptions);
-    const sections = document.querySelectorAll("section");
-    sections.forEach((section) => {
-        section.classList.add("scroll-animate");
-        observer.observe(section);
-    });
-    const animatedElements = document.querySelectorAll(".adhkar-card, .tasbih-card, .library-card, .video-card, .hesn-btn, .surah-btn, .interaction-btn");
-    animatedElements.forEach((element) => {
-        element.classList.add("scroll-animate");
-        observer.observe(element);
-    });
-}
-function initHoverEffects() {
-    const deceasedPhotos = document.querySelectorAll(".deceased-photo");
-    deceasedPhotos.forEach((photo) => {
-        photo.addEventListener("mouseenter", () => {
-            photo.style.animation = "float 2s ease-in-out infinite";
-        });
-        photo.addEventListener("mouseleave", () => {
-            photo.style.animation = "";
-        });
-    });
-    const memorialPhoto = document.querySelector(".memorial-photo");
-    if (memorialPhoto) {
-        memorialPhoto.addEventListener("mouseenter", () => {
-            memorialPhoto.style.animation = "glow 2s ease-in-out infinite";
-        });
-        memorialPhoto.addEventListener("mouseleave", () => {
-            memorialPhoto.style.animation = "";
-        });
-    }
-    const buttons = document.querySelectorAll(".tasbih-btn, .hesn-btn, .surah-btn, .interaction-btn");
-    buttons.forEach((button) => {
-        button.addEventListener("mouseenter", () => {
-            button.style.animation = "pulse 0.6s ease-in-out";
-        });
-        button.addEventListener("mouseleave", () => {
-            button.style.animation = "";
-        });
-    });
-}
-function initLoadingAnimations() {
-    const images = document.querySelectorAll("img");
-    images.forEach((img) => {
-        if (!img.complete) {
-            img.classList.add("loading");
-            img.addEventListener("load", () => {
-                img.classList.remove("loading");
-            });
-        }
-    });
-}
-function initParallaxEffect() {
-    const heroSection = document.querySelector(".hero-section");
-    if (heroSection) {
-        window.addEventListener("scroll", () => {
-            const scrolled = window.pageYOffset;
-            const rate = scrolled * -0.5;
-            heroSection.style.transform = `translateY(${rate}px)`;
-        });
-    }
-}
-function initTypingEffect() {
-    const heroTitle = document.querySelector(".hero-title");
-    if (heroTitle) {
-        const text = heroTitle.textContent;
-        heroTitle.textContent = "";
-        heroTitle.style.borderRight = "2px solid white";
-        let i = 0;
-        const typeWriter = () => {
-            if (i < text.length) {
-                heroTitle.textContent += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 100);
-            } else {
-                heroTitle.style.borderRight = "none";
-            }
-        };
-        setTimeout(typeWriter, 1000);
-    }
-}
-function initSmoothScroll() {
-    const anchorLinks = document.querySelectorAll('a[href^="#"]');
-    anchorLinks.forEach((link) => {
-        link.addEventListener("click", (e) => {
-            e.preventDefault();
-            const targetId = link.getAttribute("href");
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
-            }
-        });
-    });
-}
+
+
+
+
+
+
 function initAnniversaryCountdown() {
     const deathDate = new Date("2023-01-15T00:00:00");
     const currentDate = new Date();
@@ -913,19 +803,5 @@ function initAnniversaryCountdown() {
     }, 3600000);
 }
 document.addEventListener("DOMContentLoaded", function () {
-    initScrollAnimations();
-    initHoverEffects();
-    initLoadingAnimations();
-    initParallaxEffect();
-    initTypingEffect();
-    initSmoothScroll();
     initAnniversaryCountdown();
-    const animatedElements = document.querySelectorAll(".section-title, .section-description, .card-icon");
-    animatedElements.forEach((element) => {
-        element.classList.add("animated", "fadeInUp");
-    });
-    const gridItems = document.querySelectorAll(".surah-grid .surah-btn, .hesn-buttons-container .hesn-btn");
-    gridItems.forEach((item, index) => {
-        item.style.animationDelay = `${index * 0.05}s`;
-    });
 });
