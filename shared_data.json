@@ -1,0 +1,19 @@
+{
+    "tasbih": {
+        "do3aa": 0,
+        "tasbeh": 0,
+        "hamd": 0,
+        "takbeer": 0
+    },
+    "interactions": {
+        "surahGifts": 0,
+        "prayers": 0,
+        "juzReads": 0
+    },
+    "quran": {
+        "totalReadings": 0,
+        "completedKhatmat": 0,
+        "readSurahs": []
+    },
+    "lastUpdate": "2024-01-15 12:00:00"
+} 
