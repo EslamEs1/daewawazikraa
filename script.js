@@ -617,3 +617,172 @@ document.addEventListener('DOMContentLoaded', function() {
     generateSurahButtons();
     updateInteractionCounters();
 }); 
+
+// Scroll-triggered animations
+function initScrollAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+                
+                // Add staggered animations for child elements
+                const animatedChildren = entry.target.querySelectorAll('.animated');
+                animatedChildren.forEach((child, index) => {
+                    setTimeout(() => {
+                        child.classList.add('animate');
+                    }, index * 100);
+                });
+            }
+        });
+    }, observerOptions);
+
+    // Observe all sections
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => {
+        section.classList.add('scroll-animate');
+        observer.observe(section);
+    });
+
+    // Observe cards and other elements
+    const animatedElements = document.querySelectorAll('.adhkar-card, .tasbih-card, .library-card, .video-card, .hesn-btn, .surah-btn, .interaction-btn');
+    animatedElements.forEach(element => {
+        element.classList.add('scroll-animate');
+        observer.observe(element);
+    });
+}
+
+// Enhanced hover effects
+function initHoverEffects() {
+    // Add floating animation to deceased photos
+    const deceasedPhotos = document.querySelectorAll('.deceased-photo');
+    deceasedPhotos.forEach(photo => {
+        photo.addEventListener('mouseenter', () => {
+            photo.style.animation = 'float 2s ease-in-out infinite';
+        });
+        
+        photo.addEventListener('mouseleave', () => {
+            photo.style.animation = '';
+        });
+    });
+
+    // Add glow effect to memorial photo
+    const memorialPhoto = document.querySelector('.memorial-photo');
+    if (memorialPhoto) {
+        memorialPhoto.addEventListener('mouseenter', () => {
+            memorialPhoto.style.animation = 'glow 2s ease-in-out infinite';
+        });
+        
+        memorialPhoto.addEventListener('mouseleave', () => {
+            memorialPhoto.style.animation = '';
+        });
+    }
+
+    // Add pulse effect to buttons
+    const buttons = document.querySelectorAll('.tasbih-btn, .hesn-btn, .surah-btn, .interaction-btn');
+    buttons.forEach(button => {
+        button.addEventListener('mouseenter', () => {
+            button.style.animation = 'pulse 0.6s ease-in-out';
+        });
+        
+        button.addEventListener('mouseleave', () => {
+            button.style.animation = '';
+        });
+    });
+}
+
+// Loading animations
+function initLoadingAnimations() {
+    // Add loading animation to images
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+        if (!img.complete) {
+            img.classList.add('loading');
+            img.addEventListener('load', () => {
+                img.classList.remove('loading');
+            });
+        }
+    });
+}
+
+// Parallax effect for hero section
+function initParallaxEffect() {
+    const heroSection = document.querySelector('.hero-section');
+    if (heroSection) {
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.5;
+            heroSection.style.transform = `translateY(${rate}px)`;
+        });
+    }
+}
+
+// Typing effect for hero title
+function initTypingEffect() {
+    const heroTitle = document.querySelector('.hero-title');
+    if (heroTitle) {
+        const text = heroTitle.textContent;
+        heroTitle.textContent = '';
+        heroTitle.style.borderRight = '2px solid white';
+        
+        let i = 0;
+        const typeWriter = () => {
+            if (i < text.length) {
+                heroTitle.textContent += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            } else {
+                heroTitle.style.borderRight = 'none';
+            }
+        };
+        
+        // Start typing effect after a delay
+        setTimeout(typeWriter, 1000);
+    }
+}
+
+// Smooth scroll for anchor links
+function initSmoothScroll() {
+    const anchorLinks = document.querySelectorAll('a[href^="#"]');
+    anchorLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+}
+
+// Initialize all animations when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize new animation features
+    initScrollAnimations();
+    initHoverEffects();
+    initLoadingAnimations();
+    initParallaxEffect();
+    initTypingEffect();
+    initSmoothScroll();
+    
+    // Add animation classes to existing elements
+    const animatedElements = document.querySelectorAll('.section-title, .section-description, .card-icon');
+    animatedElements.forEach(element => {
+        element.classList.add('animated', 'fadeInUp');
+    });
+    
+    // Add staggered animations to grid items
+    const gridItems = document.querySelectorAll('.surah-grid .surah-btn, .hesn-buttons-container .hesn-btn');
+    gridItems.forEach((item, index) => {
+        item.style.animationDelay = `${index * 0.05}s`;
+    });
+}); 

@@ -13,7 +13,632 @@ body {
     min-height: 100vh;
 }
 
+/* Animation Keyframes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromBottom {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideInFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotateIn {
+    from {
+        opacity: 0;
+        transform: rotate(-180deg) scale(0.3);
+    }
+    to {
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+    }
+}
+
+@keyframes flipInX {
+    from {
+        opacity: 0;
+        transform: perspective(400px) rotateX(90deg);
+    }
+    40% {
+        transform: perspective(400px) rotateX(-20deg);
+    }
+    60% {
+        transform: perspective(400px) rotateX(10deg);
+    }
+    80% {
+        transform: perspective(400px) rotateX(-5deg);
+    }
+    to {
+        opacity: 1;
+        transform: perspective(400px) rotateX(0deg);
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 1;
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes lightSpeedIn {
+    from {
+        opacity: 0;
+        transform: translateX(-100%) skewX(-30deg);
+    }
+    60% {
+        opacity: 1;
+        transform: translateX(20%) skewX(-30deg);
+    }
+    80% {
+        transform: translateX(-5%) skewX(-30deg);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0%) skewX(0deg);
+    }
+}
+
+@keyframes swing {
+    20% {
+        transform: rotate(15deg);
+    }
+    40% {
+        transform: rotate(-10deg);
+    }
+    60% {
+        transform: rotate(5deg);
+    }
+    80% {
+        transform: rotate(-5deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 30px rgba(255, 215, 0, 0.6);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* Section Animations */
+.hero-section {
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero-content {
+    animation: fadeInLeft 1.2s ease-out 0.3s both;
+}
+
+.hero-image {
+    animation: fadeInRight 1.2s ease-out 0.3s both;
+}
+
+.prayers-memories-section {
+    animation: slideInFromBottom 1s ease-out;
+}
+
+.prayer-card {
+    animation: scaleIn 0.8s ease-out;
+}
+
+.prayer-card.active {
+    animation: bounceIn 0.8s ease-out;
+}
+
+.adhkar-section {
+    animation: fadeInUp 1s ease-out;
+}
+
+.adhkar-card {
+    animation: flipInX 1s ease-out;
+}
+
+.adhkar-card:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.adhkar-card:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.quran-section {
+    animation: slideInFromBottom 1s ease-out;
+}
+
+.quran-content {
+    animation: fadeInLeft 1s ease-out 0.3s both;
+}
+
+.quran-player {
+    animation: fadeInRight 1s ease-out 0.3s both;
+}
+
+.holy-quran-section {
+    animation: fadeInUp 1s ease-out;
+}
+
+.holy-quran-content {
+    animation: fadeInLeft 1.2s ease-out 0.3s both;
+}
+
+.holy-quran-image {
+    animation: fadeInRight 1.2s ease-out 0.3s both;
+}
+
+.tafsir-section {
+    animation: slideInFromBottom 1s ease-out;
+}
+
+.tafsir-container {
+    animation: zoomIn 1s ease-out 0.3s both;
+}
+
+.learn-islam-section {
+    animation: fadeInUp 1s ease-out;
+}
+
+.learn-content {
+    animation: fadeInLeft 1.2s ease-out 0.3s both;
+}
+
+.learn-image {
+    animation: fadeInRight 1.2s ease-out 0.3s both;
+}
+
+.islamic-heritage-section {
+    animation: slideInFromBottom 1s ease-out;
+}
+
+.heritage-content {
+    animation: fadeInLeft 1.2s ease-out 0.3s both;
+}
+
+.heritage-image {
+    animation: fadeInRight 1.2s ease-out 0.3s both;
+}
+
+.muslim-library-section {
+    animation: fadeInUp 1s ease-out;
+}
+
+.library-content {
+    animation: fadeInLeft 1.2s ease-out 0.3s both;
+}
+
+.library-image {
+    animation: fadeInRight 1.2s ease-out 0.3s both;
+}
+
+.library-section {
+    animation: slideInFromBottom 1s ease-out;
+}
+
+.library-card {
+    animation: scaleIn 0.8s ease-out;
+}
+
+.library-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.library-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.library-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.library-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.hadith-section {
+    animation: fadeInUp 1s ease-out;
+}
+
+.search-container {
+    animation: lightSpeedIn 1s ease-out 0.3s both;
+}
+
+.videos-section {
+    animation: slideInFromBottom 1s ease-out;
+}
+
+.video-card {
+    animation: flipInX 1s ease-out;
+}
+
+.video-card:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.video-card:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.ruqyah-section {
+    animation: fadeInUp 1s ease-out;
+}
+
+.ruqyah-section .video-card {
+    animation: scaleIn 0.8s ease-out;
+}
+
+.ruqyah-section .video-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.ruqyah-section .video-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.ruqyah-section .video-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.ruqyah-section .video-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.deaf-portal-section {
+    animation: slideInFromBottom 1s ease-out;
+}
+
+.deaf-portal-card {
+    animation: fadeInLeft 1.2s ease-out 0.3s both;
+}
+
+.deaf-portal-info {
+    animation: fadeInRight 1.2s ease-out 0.3s both;
+}
+
+.hesn-section {
+    animation: fadeInUp 1s ease-out;
+}
+
+.hesn-header {
+    animation: slideInFromTop 1s ease-out 0.3s both;
+}
+
+.hesn-buttons-container {
+    animation: zoomIn 1s ease-out 0.5s both;
+}
+
+.hesn-btn {
+    animation: scaleIn 0.6s ease-out;
+}
+
+.quran-surah-section {
+    animation: slideInFromBottom 1s ease-out;
+}
+
+.surah-section-card {
+    animation: bounceIn 1s ease-out 0.3s both;
+}
+
+.surah-stats {
+    animation: fadeInUp 1s ease-out 0.5s both;
+}
+
+.surah-grid {
+    animation: zoomIn 1s ease-out 0.7s both;
+}
+
+.surah-btn {
+    animation: scaleIn 0.5s ease-out;
+}
+
+.interaction-buttons-section {
+    animation: fadeInUp 1s ease-out;
+}
+
+.interaction-card {
+    animation: bounceIn 1s ease-out 0.3s both;
+}
+
+.interaction-btn {
+    animation: flipInX 1s ease-out;
+}
+
+.interaction-btn:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.interaction-btn:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.interaction-btn:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.tasbih-section {
+    animation: slideInFromBottom 1s ease-out;
+}
+
+.tasbih-card {
+    animation: rotateIn 1s ease-out;
+}
+
+.tasbih-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.tasbih-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.tasbih-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.tasbih-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.footer-section {
+    animation: fadeInUp 1s ease-out;
+}
+
+/* Hover Animations */
+.adhkar-card:hover {
+    animation: pulse 0.6s ease-in-out;
+}
+
+.tasbih-card:hover {
+    animation: swing 0.6s ease-in-out;
+}
+
+.library-card:hover {
+    animation: pulse 0.6s ease-in-out;
+}
+
+.video-card:hover {
+    animation: pulse 0.6s ease-in-out;
+}
+
+.hesn-btn:hover {
+    animation: pulse 0.3s ease-in-out;
+}
+
+.surah-btn:hover {
+    animation: pulse 0.3s ease-in-out;
+}
+
+.interaction-btn:hover {
+    animation: pulse 0.6s ease-in-out;
+}
+
+.tasbih-btn:hover {
+    animation: swing 0.6s ease-in-out;
+}
+
+/* Special Effects */
+.deceased-photo:hover {
+    animation: float 2s ease-in-out infinite;
+}
+
+.memorial-photo:hover {
+    animation: glow 2s ease-in-out infinite;
+}
+
+.section-title {
+    animation: slideInFromTop 1s ease-out;
+}
+
+.section-description {
+    animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+/* Loading Animation */
+.loading {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+/* Scroll-triggered animations */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.scroll-animate.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive animations */
+@media (max-width: 768px) {
+    .hero-content,
+    .hero-image {
+        animation: fadeInUp 1s ease-out;
+    }
+    
+    .quran-content,
+    .quran-player {
+        animation: fadeInUp 1s ease-out;
+    }
+    
+    .holy-quran-content,
+    .holy-quran-image {
+        animation: fadeInUp 1s ease-out;
+    }
+    
+    .learn-content,
+    .learn-image {
+        animation: fadeInUp 1s ease-out;
+    }
+    
+    .heritage-content,
+    .heritage-image {
+        animation: fadeInUp 1s ease-out;
+    }
+    
+    .library-content,
+    .library-image {
+        animation: fadeInUp 1s ease-out;
+    }
+    
+    .deaf-portal-card,
+    .deaf-portal-info {
+        animation: fadeInUp 1s ease-out;
+    }
+}
+
+/* Animation performance optimizations */
+* {
+    will-change: transform, opacity;
+}
+
+.animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+.animated.infinite {
+    animation-iteration-count: infinite;
+}
+
+.animated.delay-1s {
+    animation-delay: 1s;
+}
+
+.animated.delay-2s {
+    animation-delay: 2s;
+}
+
+.animated.delay-3s {
+    animation-delay: 3s;
+}
+
+.animated.fast {
+    animation-duration: 0.8s;
+}
+
+.animated.slow {
+    animation-duration: 2s;
+}
 
 /* Deceased Photo Styles */
 .deceased-photo {
