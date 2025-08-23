@@ -4,6 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>صفحة الذكرى - صدقة جارية</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#ede0d4">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="صفحة الذكرى">
+    <meta name="description" content="صفحة الذكرى - صدقة جارية للمتوفى يوسف أحمد">
+    <meta name="keywords" content="ذكرى, صدقة جارية, قرآن, دعاء, تسبيح">
+    
+    <!-- PWA Icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Stylesheets -->
     <link href="bootstrap.rtl.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -12,19 +28,23 @@
 <body>
     <!-- Header Section -->
     <header class="hero-section">
-        <div class="hero-background">
-            <img src="images/landing.jpg" alt="صورة القرآن" class="hero-bg-image">
-            <div class="hero-overlay"></div>
-        </div>
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-8 col-md-10 text-center">
                     <div class="hero-content">
                         <h1 class="hero-title">صفحة الذكرى</h1>
                         <h2 class="hero-subtitle">صدقة جارية للمتوفى <span class="deceased-name">يوسف أحمد</span></h2>
                         <p class="hero-description">
                             "إِذَا مَاتَ ابْنُ آدَمَ انْقَطَعَ عَمَلُهُ إِلَّا مِنْ ثَلَاثٍ: صَدَقَةٍ جَارِيَةٍ، أَوْ عِلْمٍ يُنْتَفَعُ بِهِ، أَوْ وَلَدٍ صَالِحٍ يَدْعُو لَهُ"
                         </p>
+                        
+                        <!-- Memorial Photo - Centered and Circular -->
+                        <div class="hero-image">
+                            <div class="memorial-frame">
+                                <img src="images/fekD2AlzZmCJuF6KWCFe9NOfBA0TIF2wLg9HyNL9.jpg" alt="صورة المتوفى" class="memorial-photo">
+                            </div>
+                        </div>
+                        
                         <div class="main-audio-player">
                             <audio controls class="custom-audio">
                                 <source src="audios/llmyt-__-alda-aldhy-swf-ysd-kl-myt-mn-ahbayk-__-sdqt-jaryt-__-alqary-bdaljlyl-alznaty-192-kbps.lite.mp3" type="audio/mp3">
@@ -63,6 +83,7 @@
                             <div class="anniversary-message">
                                 <p>كلما اقترب موعد الذكرى السنوية، تزداد الحاجة للدعاء والصدقة الجارية</p>
                             </div>
+
                         </div>
                         
                         <!-- Quran Reading Counter -->
@@ -77,17 +98,13 @@
                                     <span>الختمات المكتملة: <span id="completedKhatmatMini">0</span></span>
                                 </div>
                             </div>
-                            <a href="#quran-surah-section" class="btn btn-outline-light">
-                                <i class="fas fa-arrow-down"></i>
-                                اهدِ له ثواب قراءة القرآن
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="hero-image">
-                        <div class="memorial-frame">
-                            <img src="images/fekD2AlzZmCJuF6KWCFe9NOfBA0TIF2wLg9HyNL9.jpg" alt="صورة المتوفى" class="memorial-photo">
+                            <div class="counter-actions">
+                                <a href="#quran-surah-section" class="btn btn-outline-light">
+                                    <i class="fas fa-arrow-down"></i>
+                                    اهدِ له ثواب قراءة القرآن
+                                </a>
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -100,8 +117,8 @@
     <section class="prayers-memories-section">
         <div class="container">
             <h3 class="section-title">أدعية وذكريات</h3>
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 mx-auto">
                     <div class="prayers-container">
                         <div class="prayer-card active" id="prayer1">
                             <div class="prayer-icon">
@@ -115,7 +132,7 @@
                             </div>
                         </div>
                         
-                        <div class="prayer-card" id="prayer2">
+                        <div class="prayer-card" id="prayer2" style="display: none;">
                             <div class="prayer-icon">
                                 <i class="fas fa-star"></i>
                             </div>
@@ -127,7 +144,7 @@
                             </div>
                         </div>
                         
-                        <div class="prayer-card" id="prayer3">
+                        <div class="prayer-card" id="prayer3" style="display: none;">
                             <div class="prayer-icon">
                                 <i class="fas fa-dove"></i>
                             </div>
@@ -139,7 +156,7 @@
                             </div>
                         </div>
                         
-                        <div class="prayer-card" id="prayer4">
+                        <div class="prayer-card" id="prayer4" style="display: none;">
                             <div class="prayer-icon">
                                 <i class="fas fa-mosque"></i>
                             </div>
@@ -151,7 +168,7 @@
                             </div>
                         </div>
                         
-                        <div class="prayer-card" id="prayer5">
+                        <div class="prayer-card" id="prayer5" style="display: none;">
                             <div class="prayer-icon">
                                 <i class="fas fa-sun"></i>
                             </div>
@@ -165,11 +182,23 @@
                     </div>
                     
                     <div class="prayer-navigation">
-                        <button class="nav-btn active" data-prayer="prayer1">1</button>
-                        <button class="nav-btn" data-prayer="prayer2">2</button>
-                        <button class="nav-btn" data-prayer="prayer3">3</button>
-                        <button class="nav-btn" data-prayer="prayer4">4</button>
-                        <button class="nav-btn" data-prayer="prayer5">5</button>
+                        <div class="nav-buttons">
+                            <button class="nav-btn active" onclick="showPrayer(1)">1</button>
+                            <button class="nav-btn" onclick="showPrayer(2)">2</button>
+                            <button class="nav-btn" onclick="showPrayer(3)">3</button>
+                            <button class="nav-btn" onclick="showPrayer(4)">4</button>
+                            <button class="nav-btn" onclick="showPrayer(5)">5</button>
+                        </div>
+                        <div class="prayer-controls">
+                            <button class="btn btn-outline-primary" onclick="previousPrayer()">
+                                <i class="fas fa-chevron-right"></i>
+                                السابق
+                            </button>
+                            <button class="btn btn-outline-primary" onclick="nextPrayer()">
+                                التالي
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -179,27 +208,32 @@
     <!-- Adhkar Section -->
     <section class="adhkar-section">
         <div class="container">
-            <div class="row">
-                <div class="col-md-6">
+            <h3 class="section-title">أذكار الصباح والمساء</h3>
+            <div class="row justify-content-center">
+                <div class="col-lg-5 col-md-6 mb-4">
                     <div class="adhkar-card morning">
                         <div class="card-icon">
                             <i class="fas fa-sun"></i>
                         </div>
                         <h3>أذكار الصباح</h3>
+                        <p class="adhkar-description">أذكار الصباح المباركة لحفظ المسلم في نهاره</p>
                         <audio controls class="custom-audio">
                             <source src="audios/azkar-morning.lite.mp3" type="audio/mp3">
                         </audio>
+
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-lg-5 col-md-6 mb-4">
                     <div class="adhkar-card evening">
                         <div class="card-icon">
                             <i class="fas fa-moon"></i>
                         </div>
                         <h3>أذكار المساء</h3>
+                        <p class="adhkar-description">أذكار المساء المباركة لحفظ المسلم في ليله</p>
                         <audio controls class="custom-audio">
                             <source src="audios/azkar-night.lite.mp3" type="audio/mp3">
                         </audio>
+
                     </div>
                 </div>
             </div>
@@ -209,17 +243,18 @@
      <!-- Quran Section -->
     <section class="quran-section">
         <div class="container">
-            <div class="row align-items-center">
+            <h3 class="section-title">القرآن الكريم</h3>
+            <div class="row align-items-center justify-content-center">
                 <div class="col-lg-6">
                     <div class="quran-content">
-                        <h3>القرآن الكريم</h3>
-                        <p>وَإِذَا قُرِئَ الْقُرْآنُ فَاسْتَمِعُواْ لَهُ وَأَنصِتُواْ لَعَلَّكُمْ تُرْحَمُونَ</p>
-                        <p>اختر السورة والقارئ المحبب لك واستمع مباشرة إلى التلاوة المباركة</p>
+                        <p class="quran-description">وَإِذَا قُرِئَ الْقُرْآنُ فَاسْتَمِعُواْ لَهُ وَأَنصِتُواْ لَعَلَّكُمْ تُرْحَمُونَ</p>
+                        <p class="quran-subtitle">اختر السورة والقارئ المحبب لك واستمع مباشرة إلى التلاوة المباركة</p>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="quran-player">
-                        <iframe src="https://ar.muqri.com/" frameborder="0" width="100%" height="400"></iframe>
+                        <iframe src="https://ar.muqri.com/" frameborder="0" width="100%" height="400" title="القرآن الكريم"></iframe>
+
                     </div>
                 </div>
             </div>
@@ -230,7 +265,7 @@
     <!-- Holy Quran Section -->
     <section class="holy-quran-section">
         <div class="container">
-            <div class="row align-items-center">
+            <div class="row align-items-center justify-content-center">
                 <div class="col-lg-6">
                     <div class="holy-quran-content">
                         <h3 class="section-title">المصحف الإلكتروني</h3>
@@ -238,7 +273,7 @@
                             "إِنَّ هَٰذَا الْقُرْآنَ يَهْدِي لِلَّتِي هِيَ أَقْوَمُ وَيُبَشِّرُ الْمُؤْمِنِينَ الَّذِينَ يَعْمَلُونَ الصَّالِحَاتِ أَنَّ لَهُمْ أَجْرًا كَبِيرًا"
                         </p>
                         <p class="quran-subtitle">
-                            مصحف إلكتروني شامل مع التفسير والترجمة والتلاوات
+                            مصحف إلكتروني شامل مع التفسير والترجمة والتلاوات المباركة
                         </p>
                         <div class="quran-features">
                             <div class="feature-item">
@@ -258,12 +293,15 @@
                                 <span>بحث متقدم</span>
                             </div>
                         </div>
-                        <a href="https://quran.ksu.edu.sa/index.php#aya=1_1&m=hafs&qaree=husary&trans=ar_mu" 
-                           target="_blank" 
-                           class="btn btn-primary quran-btn">
-                            <i class="fas fa-external-link-alt"></i>
-                            تصفح المصحف الإلكتروني
-                        </a>
+                        <div class="quran-actions">
+                            <a href="https://quran.ksu.edu.sa/index.php#aya=1_1&m=hafs&qaree=husary&trans=ar_mu" 
+                               target="_blank" 
+                               class="btn btn-primary quran-btn">
+                                <i class="fas fa-external-link-alt"></i>
+                                تصفح المصحف الإلكتروني
+                            </a>
+
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -283,24 +321,25 @@
     <!-- Quran Tafsir Section -->
     <section class="tafsir-section">
         <div class="container">
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="col-12">
                     <h3 class="section-title">تفسير القرآن الكريم</h3>
                     <p class="section-description">
                         "وَلَقَدْ يَسَّرْنَا الْقُرْآنَ لِلذِّكْرِ فَهَلْ مِن مُّدَّكِرٍ"
                     </p>
+                    <p class="section-subtitle">تفسير القرآن الكريم بطريقة سهلة وميسرة</p>
                     <div class="tafsir-container">
                         <div class="tafsir-frame">
                             <iframe 
                                 src="https://read.tafsir.one/" 
                                 frameborder="0" 
                                 width="100%" 
-                                height="600"
+                                height="400"
                                 title="تفسير القرآن الكريم"
                                 class="tafsir-iframe">
                             </iframe>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -310,7 +349,7 @@
      <!-- Learn Islam Section -->
     <section class="learn-islam-section">
         <div class="container">
-            <div class="row align-items-center">
+            <div class="row align-items-center justify-content-center">
                 <div class="col-lg-6">
                     <div class="learn-content">
                         <h3 class="section-title">تعلم الإسلام</h3>
@@ -318,7 +357,7 @@
                             "مَنْ سَلَكَ طَرِيقًا يَلْتَمِسُ فِيهِ عِلْمًا سَهَّلَ اللَّهُ لَهُ بِهِ طَرِيقًا إِلَى الْجَنَّةِ"
                         </p>
                         <p class="learn-subtitle">
-                            منصة تاء لتعلم العلوم الشرعية بطريقة تفاعلية تنافسية
+                            منصة تعليمية لتعلم العلوم الشرعية بطريقة تفاعلية وميسرة
                         </p>
                         
                         <div class="learn-subjects">
@@ -332,12 +371,15 @@
                                 <span class="subject-tag">المناسبات</span>
                             </div>
                         </div>
-                        <a href="https://learningislam.com/" 
-                           target="_blank" 
-                           class="btn btn-primary learn-btn">
-                            <i class="fas fa-external-link-alt"></i>
-                            ابدأ التعلم الآن
-                        </a>
+                        <div class="learn-actions">
+                            <a href="https://learningislam.com/" 
+                               target="_blank" 
+                               class="btn btn-primary learn-btn">
+                                <i class="fas fa-external-link-alt"></i>
+                                ابدأ التعلم الآن
+                            </a>
+
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -360,7 +402,7 @@
     <!-- Islamic Books and Heritage Section -->
     <section class="islamic-heritage-section">
         <div class="container">
-            <div class="row align-items-center">
+            <div class="row align-items-center justify-content-center">
                 <div class="col-lg-6">
                     <div class="heritage-content">
                         <h3 class="section-title">البحث في الكتب الإسلامية والتراث الإسلامي</h3>
@@ -368,7 +410,7 @@
                             "مَنْ سَلَكَ طَرِيقًا يَلْتَمِسُ فِيهِ عِلْمًا سَهَّلَ اللَّهُ لَهُ بِهِ طَرِيقًا إِلَى الْجَنَّةِ"
                         </p>
                         <p class="heritage-subtitle">
-                            مكتبة إسلامية شاملة تحتوي على آلاف الكتب والمراجع الإسلامية
+                            مكتبة إسلامية شاملة تحتوي على آلاف الكتب والمراجع الإسلامية المهمة
                         </p>
                         <div class="heritage-features">
                             <div class="heritage-feature">
@@ -388,12 +430,15 @@
                                 <span>متوافق مع جميع الأجهزة</span>
                             </div>
                         </div>
-                        <a href="https://app.turath.io/" 
-                           target="_blank" 
-                           class="btn btn-primary heritage-btn">
-                            <i class="fas fa-external-link-alt"></i>
-                            تصفح المكتبة الإسلامية
-                        </a>
+                        <div class="heritage-actions">
+                            <a href="https://app.turath.io/" 
+                               target="_blank" 
+                               class="btn btn-primary heritage-btn">
+                                <i class="fas fa-external-link-alt"></i>
+                                تصفح المكتبة الإسلامية
+                            </a>
+
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -415,7 +460,7 @@
     <!-- Muslim Home Library Section -->
     <section class="muslim-library-section">
         <div class="container">
-            <div class="row align-items-center">
+            <div class="row align-items-center justify-content-center">
                 <div class="col-lg-6">
                     <div class="library-content">
                         <h3 class="section-title">مكتبة البيت المسلم</h3>
@@ -437,12 +482,15 @@
                                 <span class="category-tag">اللغة العربية</span>
                             </div>
                         </div>
-                        <a href="https://islamweb.net/ar/library/" 
-                           target="_blank" 
-                           class="btn btn-primary library-btn">
-                            <i class="fas fa-external-link-alt"></i>
-                            تصفح مكتبة البيت المسلم
-                        </a>
+                        <div class="library-actions">
+                            <a href="https://islamweb.net/ar/library/" 
+                               target="_blank" 
+                               class="btn btn-primary library-btn">
+                                <i class="fas fa-external-link-alt"></i>
+                                تصفح مكتبة البيت المسلم
+                            </a>
+
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -464,9 +512,10 @@
     <!-- Islamic Library Cards -->
     <section class="library-section">
         <div class="container">
-            <h3 class="section-title section-title2">مكتبة إسلامية شاملة</h3>
-            <div class="row">
-                <div class="col-md-3">
+            <h3 class="section-title">مكتبة إسلامية شاملة</h3>
+            <p class="section-description">مكتبة شاملة تحتوي على أهم الكتب والمراجع الإسلامية</p>
+            <div class="row justify-content-center">
+                <div class="col-lg-3 col-md-6 mb-4">
                     <div class="library-card">
                         <div class="card-image">
                             <img src="images/Tajweed rules.jpg" alt="أحكام التجويد">
@@ -474,11 +523,14 @@
                         <div class="card-content">
                             <h4>أحكام التجويد</h4>
                             <p>تعلم أحكام التجويد بطريقة سهلة وميسرة</p>
-                            <a href="https://surahquran.com/Tajweed/#google_vignette" target="_blank" class="btn btn-outline-primary">تصفح</a>
+                            <div class="card-actions">
+                                <a href="https://surahquran.com/Tajweed/#google_vignette" target="_blank" class="btn btn-outline-primary">تصفح</a>
+
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-lg-3 col-md-6 mb-4">
                     <div class="library-card">
                         <div class="card-image">
                             <img src="images/Hajj and Umrah.jpg" alt="الحج والعمرة">
@@ -490,7 +542,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-lg-3 col-md-6 mb-4">
                     <div class="library-card">
                         <div class="card-image">
                             <img src="images/تفسير القرآن.jpg" alt="تفسير القرآن">
@@ -498,19 +550,25 @@
                         <div class="card-content">
                             <h4>تفسير القرآن الكريم</h4>
                             <p>مكتبة شاملة لتفسير القرآن الكريم</p>
-                            <a href="https://surahquran.com/tafsir-ibn-kathir/altafsir.html" target="_blank" class="btn btn-outline-primary">تصفح</a>
+                            <div class="card-actions">
+                                <a href="https://surahquran.com/tafsir-ibn-kathir/altafsir.html" target="_blank" class="btn btn-outline-primary">تصفح</a>
+
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-lg-3 col-md-6 mb-4">
                     <div class="library-card">
                         <div class="card-image">
-                            <img src="images/الفقه الميسر في ضوء الكتاب والسنة.jpg" target="_blank" alt="الفقه الميسر">
+                            <img src="images/الفقه الميسر في ضوء الكتاب والسنة.jpg" alt="الفقه الميسر">
                         </div>
                         <div class="card-content">
                             <h4>الفقه الميسر</h4>
                             <p>الفقه الميسر في ضوء الكتاب والسنة</p>
-                            <a href="https://www.noor-book.com/%D9%83%D8%AA%D8%A7%D8%A8-%D8%A7%D9%84%D9%81%D9%82%D9%87-%D8%A7%D9%84%D9%85%D9%8A%D8%B3%D8%B1-%D9%81%D9%8A-%D8%B6%D9%88%D8%A1-%D8%A7%D9%84%D9%83%D8%AA%D8%A7%D8%A8-%D9%88%D8%A7%D9%84%D8%B3%D9%86%D8%A9-pdf" target="_blank" class="btn btn-outline-primary">تصفح</a>
+                            <div class="card-actions">
+                                <a href="https://www.noor-book.com/%D9%83%D8%AA%D8%A7%D8%A8-%D8%A7%D9%84%D9%81%D9%82%D9%87-%D8%A7%D9%84%D9%85%D9%8A%D8%B3%D8%B1-%D9%81%D9%8A-%D8%B6%D9%88%D8%A1-%D8%A7%D9%84%D9%83%D8%AA%D8%A7%D8%A8-%D9%88%D8%A7%D9%84%D9%86%D8%A9-pdf" target="_blank" class="btn btn-outline-primary">تصفح</a>
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -522,15 +580,16 @@
     <section class="hadith-section">
         <div class="container">
             <h3 class="section-title">موسوعة الحديث النبوي الشريف</h3>
-            <p class="section-description">أكبر قاعدة بحث في الحديث النبوي الشريف والسنة المطهّرة، تستطيع التحقق من صحة الأحاديث بالبحث هنا في مئات الآلاف من الأحاديث النبوية</p>
-            <div class="row">
-                <div class="col-12">
+            <p class="section-description">أكبر قاعدة بحث في الحديث النبوي الشريف والسنة المطهّرة، يمكنك التحقق من صحة الأحاديث بالبحث هنا</p>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-10">
                     <div class="search-container">
                         <div class="input-group">
                             <input type="text" class="form-control" id="hadithSearch" placeholder="ابحث في الحديث النبوي الشريف...">
                             <button class="btn btn-primary" type="button" onclick="searchHadith()">
                                 <i class="fas fa-search"></i> بحث
                             </button>
+
                         </div>
                     </div>
                 </div>
@@ -541,9 +600,10 @@
      <!-- Islamic Videos Section -->
     <section class="videos-section">
         <div class="container">
-            <h3 class="section-title section-title2">فيديوهات إسلامية</h3>
-            <div class="row">
-                <div class="col-md-6">
+            <h3 class="section-title">فيديوهات إسلامية</h3>
+            <p class="section-description">فيديوهات إسلامية مفيدة ومفيدة للأسرة المسلمة</p>
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-6 mb-4">
                     <div class="video-card">
                         <div class="video-container">
                             <iframe src="https://www.youtube.com/embed/vBc_d0ysEGE" title="الأربعين النووية" frameborder="0" allowfullscreen></iframe>
@@ -551,10 +611,11 @@
                         <div class="video-info">
                             <h4>الأربعين النووية</h4>
                             <p>خلاصة وافية وكافية من أحاديث الحبيب صلى الله عليه وسلم</p>
+
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-lg-6 col-md-6 mb-4">
                     <div class="video-card">
                         <div class="video-container">
                             <iframe src="https://www.youtube.com/embed/xU0w0jWafzw" title="نصائح مهمة" frameborder="0" allowfullscreen></iframe>
@@ -562,6 +623,7 @@
                         <div class="video-info">
                             <h4>نصائح مهمة</h4>
                             <p>نصائح مهمة لمن فقدت زوجها وكيف تفرحه بعد موته</p>
+
                         </div>
                     </div>
                 </div>
@@ -573,45 +635,49 @@
     <section class="ruqyah-section">
         <div class="container">
             <h3 class="section-title">الرقية الشرعية</h3>
-            <p class="section-description">هذا الجزء خاص بفيديوهات رقية علاج السحر والمس والحسد</p>
-            <div class="row">
-                <div class="col-md-6">
+            <p class="section-description">فيديوهات رقية شرعية لعلاج السحر والمس والحسد</p>
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-6 mb-4">
                     <div class="video-card">
                         <div class="video-container">
                             <iframe src="https://www.youtube.com/embed/pOmBVt3mGyE" title="علاج السحر" frameborder="0" allowfullscreen></iframe>
                         </div>
                         <div class="video-info">
                             <h4>علاج السحر بسرعة شديدة</h4>
+
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-lg-6 col-md-6 mb-4">
                     <div class="video-card">
                         <div class="video-container">
                             <iframe src="https://www.youtube.com/embed/atH20Xomns0" title="رقية الحسد" frameborder="0" allowfullscreen></iframe>
                         </div>
                         <div class="video-info">
                             <h4>رقية الحسد والعين الحاقدة</h4>
+
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-lg-6 col-md-6 mb-4">
                     <div class="video-card">
                         <div class="video-container">
                             <iframe src="https://www.youtube.com/embed/oiSOoZNn7E0" title="رقية مس العشق" frameborder="0" allowfullscreen></iframe>
                         </div>
                         <div class="video-info">
                             <h4>رقية علاج مس العشق في دقائق</h4>
+
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-lg-6 col-md-6 mb-4">
                     <div class="video-card">
                         <div class="video-container">
                             <iframe src="https://www.youtube.com/embed/e81XvPD3xwg" title="رقية البيت" frameborder="0" allowfullscreen></iframe>
                         </div>
                         <div class="video-info">
                             <h4>رقية البيت لفك السحر وحماية الأولاد</h4>
+
                         </div>
                     </div>
                 </div>
@@ -624,9 +690,9 @@
     <section class="deaf-portal-section">
         <div class="container">
             <h3 class="section-title">بوابة الصم</h3>
-            <p class="section-description">محتوى إسلامي بلغة الإشارة للصم والبكم</p>
-            <div class="row">
-                <div class="col-md-6">
+            <p class="section-description">محتوى إسلامي مترجم بلغة الإشارة للصم والبكم</p>
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-6 mb-4">
                     <div class="deaf-portal-card">
                         <div class="portal-image">
                             <img src="images/صم.png" alt="بوابة الصم" class="deaf-portal-img">
@@ -634,13 +700,16 @@
                         <div class="portal-content">
                             <h4>محتوى إسلامي بلغة الإشارة</h4>
                             <p>فيديوهات إسلامية مترجمة بلغة الإشارة للصم والبكم</p>
-                            <a href="https://www.islamweb.net/ar/deaf/" target="_blank" class="btn btn-primary">
-                                <i class="fas fa-sign-language"></i> تصفح بوابة الصم
-                            </a>
+                            <div class="portal-actions">
+                                <a href="https://www.islamweb.net/ar/deaf/" target="_blank" class="btn btn-primary">
+                                    <i class="fas fa-sign-language"></i> تصفح بوابة الصم
+                                </a>
+
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-lg-6 col-md-6 mb-4">
                     <div class="deaf-portal-info">
                         <h4>محتوى البوابة:</h4>
                         <ul class="portal-features">
@@ -663,10 +732,10 @@
         <div class="container">
             <div class="hesn-header">
                 <div class="hesn-header-content">
-                    <div class="hesn-text">
-            <h3 class="section-title">حصن المسلم</h3>
-            <p class="section-description">هنا يمكنك الاستماع والتحصين بحصن المسلم كاملة</p>
-                    </div>
+                                            <div class="hesn-text">
+                            <h3 class="section-title">حصن المسلم</h3>
+                            <p class="section-description">هنا يمكنك الاستماع والتحصين بحصن المسلم كاملة</p>
+                        </div>
                     <div class="hesn-photo">
                         <img src="images/fekD2AlzZmCJuF6KWCFe9NOfBA0TIF2wLg9HyNL9.jpg" alt="صورة يوسف أحمد" class="deceased-photo">
                     </div>
@@ -682,9 +751,11 @@
                 </audio>
             </div>
 
-            <div class="hesn-buttons-container">
-                <div class="hesn-buttons">
-                    <div class="row">
+                                    <div class="hesn-buttons-container">
+
+                            <div class="hesn-buttons-scroll">
+                                <div class="hesn-buttons">
+                                    <div class="row">
                     <div class="col-md-6 col-lg-4">
                         <button class="hesn-btn" id="func3">حصن المسلم من أذكار الكتاب والسنة (3) دعاء لبس الثوب</button>
                     </div>
@@ -1026,14 +1097,14 @@
     <!-- Quran Surah Buttons Section -->
     <section class="quran-surah-section" id="quran-surah-section">
         <div class="container">
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="col-12">
                     <div class="surah-section-card">
                         <div class="surah-header">
                             <div class="surah-header-content">
                                 <div class="surah-text">
                                     <h3 class="section-title">قراءة القرآن الكريم</h3>
-                                    <p class="surah-subtitle">اختر سورة التى قرأتها باسم <span class="deceased-name">يوسف أحمد</span></p>
+                                    <p class="surah-subtitle">اختر السورة التي قرأتها باسم <span class="deceased-name">يوسف أحمد</span></p>
                                 </div>
                                 <div class="surah-photo">
                                     <img src="images/fekD2AlzZmCJuF6KWCFe9NOfBA0TIF2wLg9HyNL9.jpg" alt="صورة يوسف أحمد" class="deceased-photo">
@@ -1072,8 +1143,10 @@
                             </div>
                         </div>
                         
-                        <div class="surah-grid" id="surahGrid">
-                            <!-- Surah buttons will be generated by JavaScript -->
+                        <div class="surah-grid-container">
+                            <div class="surah-grid" id="surahGrid">
+                                <!-- Surah buttons will be generated by JavaScript -->
+                            </div>
                         </div>
                         
                         <div class="surah-actions">
@@ -1085,6 +1158,7 @@
                                 <i class="fas fa-share"></i>
                                 شارك التقدم
                             </button>
+
                         </div>
                     </div>
                 </div>
@@ -1095,7 +1169,7 @@
         <!-- Symbolic Interaction Buttons Section -->
     <section class="interaction-buttons-section">
         <div class="container">
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="col-12">
                     <div class="interaction-card">
                         <div class="interaction-header">
@@ -1169,6 +1243,9 @@
                                     <span>إجمالي القراءات: <span id="totalReads">0</span></span>
                                 </div>
                             </div>
+                            <div class="counter-actions">
+                                
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1180,39 +1257,54 @@
     <section class="tasbih-section">
         <div class="container">
             <h3 class="section-title">المسبحة الإلكترونية</h3>
-            <div class="row">
-                <div class="col-md-3">
+            <p class="section-description">مسبحة إلكترونية لعد الأذكار والتسبيح</p>
+            <div class="row justify-content-center">
+                <div class="col-lg-3 col-md-6 mb-4">
                     <div class="tasbih-card">
                         <h4>اللهم اغفر لـ <span class="deceased-name">يوسف أحمد</span></h4>
                         <button class="tasbih-btn" id="do3aa">إضغط</button>
                         <span class="tasbih-counter" id="output-area">0</span>
+                        <div class="tasbih-actions">
+
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-lg-3 col-md-6 mb-4">
                     <div class="tasbih-card">
                         <h4>سبحان الله</h4>
                         <button class="tasbih-btn" id="tasbeh">سبح</button>
                         <span class="tasbih-counter" id="output-area1">0</span>
+                        <div class="tasbih-actions">
+
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-lg-3 col-md-6 mb-4">
                     <div class="tasbih-card">
                         <h4>الحمد لله</h4>
                         <button class="tasbih-btn" id="hamd">احمد</button>
                         <span class="tasbih-counter" id="output-area2">0</span>
+                        <div class="tasbih-actions">
+
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-lg-3 col-md-6 mb-4">
                     <div class="tasbih-card">
                         <h4>الله أكبر</h4>
                         <button class="tasbih-btn" id="takbeer">كبر</button>
                         <span class="tasbih-counter" id="output-area3">0</span>
+                        <div class="tasbih-actions">
+
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+
+ 
 
     <!-- Footer -->
     <footer class="footer-section">
@@ -1225,6 +1317,7 @@
                     <p class="footer-subtext">
                         نسألكم الدعاء لصاحب هذه الصفحة لتكون صدقة جارية له
                     </p>
+
                 </div>
             </div>
         </div>

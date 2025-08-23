@@ -1,0 +1,98 @@
+{
+  "name": "صفحة الذكرى - صدقة جارية",
+  "short_name": "صفحة الذكرى",
+  "description": "صفحة الذكرى - صدقة جارية للمتوفى يوسف أحمد",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1e3a8a",
+  "theme_color": "#1e3a8a",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "ar",
+  "dir": "rtl",
+  "categories": ["religion", "lifestyle", "education"],
+  "icons": [
+    {
+      "src": "images/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "images/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "images/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "images/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "images/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "القرآن الكريم",
+      "short_name": "القرآن",
+      "description": "اقرأ القرآن الكريم",
+      "url": "/#quran-surah-section",
+      "icons": [
+        {
+          "src": "images/quran-icon.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "التسبيح الإلكتروني",
+      "short_name": "التسبيح",
+      "description": "استخدم التسبيح الإلكتروني",
+      "url": "/#tasbih-section",
+      "icons": [
+        {
+          "src": "images/tasbih-icon.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "الأدعية والذكر",
+      "short_name": "الأدعية",
+      "description": "اقرأ الأدعية والذكر",
+      "url": "/#prayers-memories-section",
+      "icons": [
+        {
+          "src": "images/prayer-icon.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "images/screenshot-wide.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "images/screenshot-narrow.png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ]
+} 

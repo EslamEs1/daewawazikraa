@@ -186,7 +186,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Load shared data when page loads
     setTimeout(() => {
-        loadSharedData();
+    loadSharedData();
     }, 100);
 
     // Refresh shared data every 30 seconds
@@ -768,9 +768,261 @@ document.addEventListener("DOMContentLoaded", function () {
     generateSurahButtons();
 });
 
+// Simple Prayers Functionality
+let currentPrayerIndex = 1;
+const totalPrayers = 5;
 
+// Show specific prayer
+function showPrayer(prayerNumber) {
+    // Hide all prayers
+    for (let i = 1; i <= totalPrayers; i++) {
+        const prayer = document.getElementById(`prayer${i}`);
+        if (prayer) {
+            prayer.style.display = 'none';
+            prayer.classList.remove('active');
+        }
+    }
+    
+    // Show selected prayer
+    const selectedPrayer = document.getElementById(`prayer${prayerNumber}`);
+    if (selectedPrayer) {
+        selectedPrayer.style.display = 'block';
+        selectedPrayer.classList.add('active');
+    }
+    
+    // Update navigation buttons
+    document.querySelectorAll('.nav-btn').forEach((btn, index) => {
+        btn.classList.toggle('active', index + 1 === prayerNumber);
+    });
+    
+    currentPrayerIndex = prayerNumber;
+    console.log(`Showing prayer ${prayerNumber}`);
+}
 
+// Next prayer
+function nextPrayer() {
+    let nextIndex = currentPrayerIndex + 1;
+    if (nextIndex > totalPrayers) {
+        nextIndex = 1;
+    }
+    showPrayer(nextIndex);
+}
 
+// Previous prayer
+function previousPrayer() {
+    let prevIndex = currentPrayerIndex - 1;
+    if (prevIndex < 1) {
+        prevIndex = totalPrayers;
+    }
+    showPrayer(prevIndex);
+}
+
+// Auto-advance prayers
+function startPrayersAutoAdvance() {
+    setInterval(() => {
+        nextPrayer();
+    }, 8000); // Change every 8 seconds
+}
+
+// Initialize prayers when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    // Show first prayer
+    showPrayer(1);
+    
+    // Start auto advance after 5 seconds
+    setTimeout(() => {
+        startPrayersAutoAdvance();
+    }, 5000);
+    
+    console.log('Prayers system initialized successfully');
+});
+
+// PWA Installation
+let deferredPrompt;
+let installButton;
+
+// Register Service Worker
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+            .then((registration) => {
+                console.log('SW registered: ', registration);
+            })
+            .catch((registrationError) => {
+                console.log('SW registration failed: ', registrationError);
+            });
+    });
+}
+
+// Listen for the beforeinstallprompt event
+window.addEventListener('beforeinstallprompt', (e) => {
+    // Prevent the mini-infobar from appearing on mobile
+    e.preventDefault();
+    // Stash the event so it can be triggered later
+    deferredPrompt = e;
+    
+    // Show the install button
+    showInstallButton();
+});
+
+// Show install button
+function showInstallButton() {
+    // Create install button if it doesn't exist
+    if (!installButton) {
+        installButton = document.createElement('button');
+        installButton.className = 'btn btn-primary install-btn';
+        installButton.innerHTML = `
+            <i class="fas fa-download"></i>
+            تثبيت التطبيق
+        `;
+        installButton.style.cssText = `
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 9999;
+            background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+            border: none;
+            border-radius: var(--radius-lg);
+            padding: 12px 20px;
+            color: white;
+            font-weight: 600;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition-normal);
+            animation: slideInLeft 0.5s ease-out;
+        `;
+        
+        // Add hover effect
+        installButton.addEventListener('mouseenter', () => {
+            installButton.style.transform = 'translateY(-2px)';
+            installButton.style.boxShadow = '0 15px 30px rgba(0,0,0,0.3)';
+        });
+        
+        installButton.addEventListener('mouseleave', () => {
+            installButton.style.transform = 'translateY(0)';
+            installButton.style.boxShadow = 'var(--shadow-lg)';
+        });
+        
+        // Add click event
+        installButton.addEventListener('click', installApp);
+        
+        // Add to page
+        document.body.appendChild(installButton);
+        
+        // Add CSS animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideInLeft {
+                from {
+                    transform: translateX(-100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+}
+
+// Install app function
+async function installApp() {
+    if (!deferredPrompt) {
+        return;
+    }
+    
+    // Show the install prompt
+    deferredPrompt.prompt();
+    
+    // Wait for the user to respond to the prompt
+    const { outcome } = await deferredPrompt.userChoice;
+    
+    if (outcome === 'accepted') {
+        console.log('User accepted the install prompt');
+        showInstallSuccess();
+            } else {
+        console.log('User dismissed the install prompt');
+    }
+    
+    // Clear the deferredPrompt variable
+    deferredPrompt = null;
+    
+    // Hide the install button
+    hideInstallButton();
+}
+
+// Show install success message
+function showInstallSuccess() {
+    const successMessage = document.createElement('div');
+    successMessage.className = 'install-success';
+    successMessage.innerHTML = `
+        <div class="success-content">
+            <i class="fas fa-check-circle"></i>
+            <h4>تم التثبيت بنجاح!</h4>
+            <p>يمكنك الآن الوصول للتطبيق من شاشة الهاتف الرئيسية</p>
+        </div>
+    `;
+    successMessage.style.cssText = `
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 10000;
+        background: linear-gradient(135deg, var(--success), var(--accent-color));
+        border-radius: var(--radius-xl);
+        padding: 2rem;
+        color: white;
+        text-align: center;
+        box-shadow: var(--shadow-xl);
+        animation: fadeInScale 0.5s ease-out;
+    `;
+    
+    // Add CSS animation
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+    `;
+    document.head.appendChild(style);
+    
+    document.body.appendChild(successMessage);
+    
+    // Auto remove after 3 seconds
+    setTimeout(() => {
+        successMessage.remove();
+    }, 3000);
+}
+
+// Hide install button
+function hideInstallButton() {
+    if (installButton) {
+        installButton.remove();
+        installButton = null;
+    }
+}
+
+// Check if app is already installed
+window.addEventListener('appinstalled', (evt) => {
+    console.log('App was installed');
+    hideInstallButton();
+});
+
+// Check if running in standalone mode (installed as PWA)
+if (window.matchMedia('(display-mode: standalone)').matches || 
+    window.navigator.standalone === true) {
+    console.log('App is running in standalone mode');
+    // Hide install button if already installed
+    hideInstallButton();
+}
 
 
 function initAnniversaryCountdown() {

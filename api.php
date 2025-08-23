@@ -31,24 +31,24 @@ function loadData() {
             $stmt->execute();
             
             return [
-                'tasbih' => [
-                    'do3aa' => 0,
-                    'tasbeh' => 0,
-                    'hamd' => 0,
-                    'takbeer' => 0
-                ],
-                'interactions' => [
-                    'surahGifts' => 0,
-                    'prayers' => 0,
-                    'juzReads' => 0
-                ],
-                'quran' => [
-                    'totalReadings' => 0,
-                    'completedKhatmat' => 0,
-                    'readSurahs' => []
-                ],
-                'lastUpdate' => date('Y-m-d H:i:s')
-            ];
+    'tasbih' => [
+        'do3aa' => 0,
+        'tasbeh' => 0,
+        'hamd' => 0,
+        'takbeer' => 0
+    ],
+    'interactions' => [
+        'surahGifts' => 0,
+        'prayers' => 0,
+        'juzReads' => 0
+    ],
+    'quran' => [
+        'totalReadings' => 0,
+        'completedKhatmat' => 0,
+        'readSurahs' => []
+    ],
+    'lastUpdate' => date('Y-m-d H:i:s')
+];
         }
         
         return [
@@ -107,7 +107,7 @@ function saveData($data) {
             ':completed_khatmat' => $data['quran']['completedKhatmat'],
             ':read_surahs' => json_encode($data['quran']['readSurahs'], JSON_UNESCAPED_UNICODE)
         ]);
-        
+    
         return true;
     } catch (Exception $e) {
         throw new Exception('Failed to save data: ' . $e->getMessage());
