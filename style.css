@@ -18,8 +18,15 @@
     --transition: all 0.3s ease;
 }
 
+@font-face {
+    font-family: font_bold;
+    src: url(Cairo-VariableFont_slnt\,wght.ttf);
+}
+
+
+
 body {
-    font-family: 'Cairo', sans-serif;
+    font-family: font_bold;
     background-color: var(--white-color);
     color: var(--text-dark);
     line-height: 1.6;
