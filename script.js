@@ -1,28 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const navButtons = document.querySelectorAll(".nav-btn");
+    
     const prayerCards = document.querySelectorAll(".prayer-card");
-    if (navButtons.length > 0 && prayerCards.length > 0) {
-        navButtons.forEach((button) => {
-            button.addEventListener("click", function () {
-                const targetPrayer = this.getAttribute("data-prayer");
-                navButtons.forEach((btn) => btn.classList.remove("active"));
-                prayerCards.forEach((card) => card.classList.remove("active"));
-                this.classList.add("active");
-                const targetCard = document.getElementById(targetPrayer);
-                if (targetCard) {
-                    targetCard.classList.add("active");
-                }
-            });
-        });
-        let currentPrayerIndex = 0;
-        setInterval(() => {
-            currentPrayerIndex = (currentPrayerIndex + 1) % prayerCards.length;
-            navButtons.forEach((btn) => btn.classList.remove("active"));
-            prayerCards.forEach((card) => card.classList.remove("active"));
-            if (navButtons[currentPrayerIndex] && prayerCards[currentPrayerIndex]) {
-                navButtons[currentPrayerIndex].classList.add("active");
-                prayerCards[currentPrayerIndex].classList.add("active");
-            }
+    if (prayerCards.length > 0) {
+        // Initialize first prayer
+        showPrayer(1);
+        // Start auto-advance after 5 seconds
+        setTimeout(() => {
+            startPrayersAutoAdvance();
         }, 5000);
     }
     // Shared data structure for all visitors
