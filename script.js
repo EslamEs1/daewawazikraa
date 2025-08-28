@@ -2,12 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
     
     const prayerCards = document.querySelectorAll(".prayer-card");
     if (prayerCards.length > 0) {
-        // Initialize first prayer
-        showPrayer(1);
-        // Start auto-advance after 5 seconds
-        setTimeout(() => {
-            startPrayersAutoAdvance();
-        }, 5000);
+        // Initialize prayers with scroll functionality
+        initPrayersScroll();
     }
     // Shared data structure for all visitors
     let sharedData = {
@@ -750,76 +746,45 @@ document.addEventListener("DOMContentLoaded", function () {
     // Initialize with shared data
     loadSharedData();
     generateSurahButtons();
-});
-
-// Simple Prayers Functionality
-let currentPrayerIndex = 1;
-const totalPrayers = 5;
-
-// Show specific prayer
-function showPrayer(prayerNumber) {
-    // Hide all prayers
-    for (let i = 1; i <= totalPrayers; i++) {
-        const prayer = document.getElementById(`prayer${i}`);
-        if (prayer) {
-            prayer.style.display = 'none';
-            prayer.classList.remove('active');
+    
+    // Initialize prayers scroll functionality
+    function initPrayersScroll() {
+        const prayersScroll = document.querySelector('.prayers-scroll');
+        if (prayersScroll) {
+            // Auto-scroll to next prayer every 15 seconds
+            setInterval(() => {
+                const scrollHeight = prayersScroll.scrollHeight;
+                const clientHeight = prayersScroll.clientHeight;
+                const maxScroll = scrollHeight - clientHeight;
+                
+                if (prayersScroll.scrollTop >= maxScroll) {
+                    prayersScroll.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    prayersScroll.scrollBy({ top: 200, behavior: 'smooth' });
+                }
+            }, 15000);
         }
     }
-    
-    // Show selected prayer
-    const selectedPrayer = document.getElementById(`prayer${prayerNumber}`);
-    if (selectedPrayer) {
-        selectedPrayer.style.display = 'block';
-        selectedPrayer.classList.add('active');
-    }
-    
-    // Update navigation buttons
-    document.querySelectorAll('.nav-btn').forEach((btn, index) => {
-        btn.classList.toggle('active', index + 1 === prayerNumber);
-    });
-    
-    currentPrayerIndex = prayerNumber;
-    console.log(`Showing prayer ${prayerNumber}`);
-}
-
-// Next prayer
-function nextPrayer() {
-    let nextIndex = currentPrayerIndex + 1;
-    if (nextIndex > totalPrayers) {
-        nextIndex = 1;
-    }
-    showPrayer(nextIndex);
-}
-
-// Previous prayer
-function previousPrayer() {
-    let prevIndex = currentPrayerIndex - 1;
-    if (prevIndex < 1) {
-        prevIndex = totalPrayers;
-    }
-    showPrayer(prevIndex);
-}
-
-// Auto-advance prayers
-function startPrayersAutoAdvance() {
-    setInterval(() => {
-        nextPrayer();
-    }, 8000); // Change every 8 seconds
-}
-
-// Initialize prayers when page loads
-document.addEventListener('DOMContentLoaded', function() {
-    // Show first prayer
-    showPrayer(1);
-    
-    // Start auto advance after 5 seconds
-    setTimeout(() => {
-        startPrayersAutoAdvance();
-    }, 5000);
-    
-    console.log('Prayers system initialized successfully');
 });
+
+// Prayers Scroll Functionality
+function initPrayersScroll() {
+    const prayersScroll = document.querySelector('.prayers-scroll');
+    if (prayersScroll) {
+        // Auto-scroll to next prayer every 15 seconds
+        setInterval(() => {
+            const scrollHeight = prayersScroll.scrollHeight;
+            const clientHeight = prayersScroll.clientHeight;
+            const maxScroll = scrollHeight - clientHeight;
+            
+            if (prayersScroll.scrollTop >= maxScroll) {
+                prayersScroll.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                prayersScroll.scrollBy({ top: 200, behavior: 'smooth' });
+            }
+        }, 15000);
+    }
+}
 
 // PWA Installation
 let deferredPrompt;
