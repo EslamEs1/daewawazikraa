@@ -1,10 +1,69 @@
 document.addEventListener("DOMContentLoaded", function () {
+    console.log('DOM fully loaded - initializing script');
     
-    const prayerSlides = document.querySelectorAll(".prayer-slide");
-    if (prayerSlides.length > 0) {
-        // Initialize prayers with slider functionality
-        initPrayersSlider();
+    // Define Quran surah names
+    const surahNames = [
+        "الفاتحة", "البقرة", "آل عمران", "النساء", "المائدة", "الأنعام", "الأعراف", "الأنفال", "التوبة", "يونس",
+        "هود", "يوسف", "الرعد", "إبراهيم", "الحجر", "النحل", "الإسراء", "الكهف", "مريم", "طه",
+        "الأنبياء", "الحج", "المؤمنون", "النور", "الفرقان", "الشعراء", "النمل", "القصص", "العنكبوت", "الروم",
+        "لقمان", "السجدة", "الأحزاب", "سبأ", "فاطر", "يس", "الصافات", "ص", "الزمر", "غافر",
+        "فصلت", "الشورى", "الزخرف", "الدخان", "الجاثية", "الأحقاف", "محمد", "الفتح", "الحجرات", "ق",
+        "الذاريات", "الطور", "النجم", "القمر", "الرحمن", "الواقعة", "الحديد", "المجادلة", "الحشر", "الممتحنة",
+        "الصف", "الجمعة", "المنافقون", "التغابن", "الطلاق", "التحريم", "الملك", "القلم", "الحاقة", "المعارج",
+        "نوح", "الجن", "المزمل", "المدثر", "القيامة", "الإنسان", "المرسلات", "النبأ", "النازعات", "عبس",
+        "التكوير", "الانفطار", "المطففين", "الانشقاق", "البروج", "الطارق", "الأعلى", "الغاشية", "الفجر", "البلد",
+        "الشمس", "الليل", "الضحى", "الشرح", "التين", "العلق", "القدر", "البينة", "الزلزلة", "العاديات",
+        "القارعة", "التكاثر", "العصر", "الهمزة", "الفيل", "قريش", "الماعون", "الكوثر", "الكافرون", "النصر",
+        "المسد", "الإخلاص", "الفلق", "الناس"
+    ];
+    
+    // Load hesn buttons and audio files
+    let hesnButtons = {};
+    let hesnAudioFiles = {};
+    
+    // Try to load hesn data from external files
+    try {
+        // Check if the files are included in the HTML
+        if (typeof window.hesnButtons !== 'undefined') {
+            hesnButtons = window.hesnButtons;
+            console.log('Loaded hesnButtons from global variable');
+        } else {
+            // Load from the separate file we created
+            const hesnButtonsScript = document.createElement('script');
+            hesnButtonsScript.src = 'hesn_buttons.js';
+            hesnButtonsScript.onload = function() {
+                console.log('Loaded hesnButtons from external file');
+                if (typeof window.hesnButtons !== 'undefined') {
+                    hesnButtons = window.hesnButtons;
+                    initHesnButtons();
+                }
+            };
+            document.head.appendChild(hesnButtonsScript);
+        }
+        
+        if (typeof window.hesnAudioFiles !== 'undefined') {
+            hesnAudioFiles = window.hesnAudioFiles;
+            console.log('Loaded hesnAudioFiles from global variable');
+        } else {
+            // Load from the separate file we created
+            const hesnAudioFilesScript = document.createElement('script');
+            hesnAudioFilesScript.src = 'hesn_audio_files.js';
+            hesnAudioFilesScript.onload = function() {
+                console.log('Loaded hesnAudioFiles from external file');
+                if (typeof window.hesnAudioFiles !== 'undefined') {
+                    hesnAudioFiles = window.hesnAudioFiles;
+                    initHesnButtons();
+                }
+            };
+            document.head.appendChild(hesnAudioFilesScript);
+        }
+    } catch (error) {
+        console.error('Error loading hesn data:', error);
     }
+    
+    // Initialize prayers slider
+    // initPrayersSlider(); // Removed as we now use Bootstrap carousel
+    
     // Shared data structure for all visitors
     let sharedData = {
         tasbih: {
@@ -25,48 +84,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     };
 
-    // Load shared data from server
-    async function loadSharedData() {
-        try {
-            const response = await fetch('api.php?action=getData');
-            const data = await response.json();
-            if (data && !data.error) {
-                sharedData = data;
-                updateAllCounters();
-                // Update surah buttons after loading data
-                generateSurahButtons();
-            } else {
-                console.log('Error loading data:', data);
-            }
-        } catch (error) {
-            console.log('Error loading shared data:', error);
-        }
-    }
-
-    // Update tasbih counter on server
-    async function updateTasbihCounter(type) {
-        try {
-            const response = await fetch('api.php?action=updateTasbih', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ type: type })
-            });
-            const result = await response.json();
-            if (result.success) {
-                sharedData = result.data;
-                updateAllCounters();
-            } else {
-                console.log('Error updating tasbih:', result);
-            }
-        } catch (error) {
-            console.log('Error updating tasbih counter:', error);
-        }
-    }
-
     // Update all counters display
     function updateAllCounters() {
+        console.log('Updating all counters');
+        
         // Update tasbih counters
         const tasbihOutputs = {
             'do3aa': 'output-area',
@@ -79,6 +100,9 @@ document.addEventListener("DOMContentLoaded", function () {
             const counter = document.getElementById(outputId);
             if (counter) {
                 counter.textContent = sharedData.tasbih[type] || 0;
+                console.log(`Updated ${type} counter to ${sharedData.tasbih[type] || 0}`);
+            } else {
+                console.log(`Counter element ${outputId} not found`);
             }
         });
 
@@ -119,9 +143,6 @@ document.addEventListener("DOMContentLoaded", function () {
         if (progressFillElement) progressFillElement.style.width = progressPercentage + '%';
         if (progressPercentageElement) progressPercentageElement.textContent = progressPercentage + '%';
         if (progressDetailsElement) progressDetailsElement.textContent = `(${(sharedData.quran.readSurahs || []).length} من 114 سورة)`;
-        
-        // Update surah buttons to reflect current read status
-        generateSurahButtons();
     }
 
     // Initialize tasbih buttons with shared data
@@ -132,13 +153,65 @@ document.addEventListener("DOMContentLoaded", function () {
         'takbeer': 'output-area3'
     };
 
+    // Load shared data from server
+    async function loadSharedData() {
+        console.log('Loading shared data from server');
+        try {
+            const response = await fetch('api.php?action=getData');
+            const data = await response.json();
+            if (data && !data.error) {
+                sharedData = data;
+                updateAllCounters();
+                // Generate surah buttons immediately after loading data
+                generateSurahButtons();
+                console.log('Shared data loaded successfully');
+            } else {
+                console.log('Error loading data:', data);
+                // Even if there's an error, still generate the surah buttons with empty data
+                generateSurahButtons();
+            }
+        } catch (error) {
+            console.log('Error loading shared data:', error);
+            // Even if there's an error, still generate the surah buttons with empty data
+            generateSurahButtons();
+        }
+    }
+
+    // Update tasbih counter on server
+    async function updateTasbihCounter(type) {
+        console.log(`Updating tasbih counter for ${type}`);
+        try {
+            const response = await fetch('api.php?action=updateTasbih', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ type: type })
+            });
+            const result = await response.json();
+            if (result.success) {
+                sharedData = result.data;
+                updateAllCounters();
+                console.log(`Tasbih counter for ${type} updated successfully`);
+            } else {
+                console.log('Error updating tasbih:', result);
+            }
+        } catch (error) {
+            console.log('Error updating tasbih counter:', error);
+        }
+    }
+
+    // Initialize tasbih buttons
+    console.log('Initializing tasbih buttons');
     Object.entries(tasbihButtons).forEach(([buttonId, outputId]) => {
         const button = document.getElementById(buttonId);
         const counter = document.getElementById(outputId);
 
         if (button && counter) {
+            console.log(`Setting up tasbih button: ${buttonId}`);
             button.addEventListener('click', function(e) {
                 e.preventDefault();
+                console.log(`Tasbih button clicked: ${buttonId}`);
 
                 // Update local display immediately for better UX
                 let currentCount = parseInt(counter.textContent) || 0;
@@ -161,24 +234,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Update on server
                 updateTasbihCounter(buttonId);
             });
+        } else {
+            console.log(`Failed to initialize tasbih button: ${buttonId}, button exists: ${!!button}, counter exists: ${!!counter}`);
         }
     });
 
-    // Load shared data when page loads
-    setTimeout(() => {
-    loadSharedData();
-    }, 100);
-
-    // Refresh shared data every 30 seconds
-    setInterval(loadSharedData, 30000);
-    
-    // Initialize surah buttons after a short delay to ensure DOM is ready
-    setTimeout(() => {
-        generateSurahButtons();
-    }, 500);
-
     // Update Quran data on server
     async function updateQuranData() {
+        console.log('Updating Quran data on server');
         try {
             const response = await fetch('api.php?action=updateQuran', {
                 method: 'POST',
@@ -197,132 +260,16 @@ document.addEventListener("DOMContentLoaded", function () {
             if (result.success) {
                 sharedData = result.data;
                 updateAllCounters();
+                console.log('Quran data updated successfully');
             }
         } catch (error) {
             console.log('Error updating Quran data:', error);
         }
     }
-    const surahNames = [
-        "الفاتحة",
-        "البقرة",
-        "آل عمران",
-        "النساء",
-        "المائدة",
-        "الأنعام",
-        "الأعراف",
-        "الأنفال",
-        "التوبة",
-        "يونس",
-        "هود",
-        "يوسف",
-        "الرعد",
-        "إبراهيم",
-        "الحجر",
-        "النحل",
-        "الإسراء",
-        "الكهف",
-        "مريم",
-        "طه",
-        "الأنبياء",
-        "الحج",
-        "المؤمنون",
-        "النور",
-        "الفرقان",
-        "الشعراء",
-        "النمل",
-        "القصص",
-        "العنكبوت",
-        "الروم",
-        "لقمان",
-        "السجدة",
-        "الأحزاب",
-        "سبأ",
-        "فاطر",
-        "يس",
-        "الصافات",
-        "ص",
-        "الزمر",
-        "غافر",
-        "فصلت",
-        "الشورى",
-        "الزخرف",
-        "الدخان",
-        "الجاثية",
-        "الأحقاف",
-        "محمد",
-        "الفتح",
-        "الحجرات",
-        "ق",
-        "الذاريات",
-        "الطور",
-        "النجم",
-        "القمر",
-        "الرحمن",
-        "الواقعة",
-        "الحديد",
-        "المجادلة",
-        "الحشر",
-        "الممتحنة",
-        "الصف",
-        "الجمعة",
-        "المنافقون",
-        "التغابن",
-        "الطلاق",
-        "التحريم",
-        "الملك",
-        "القلم",
-        "الحاقة",
-        "المعارج",
-        "نوح",
-        "الجن",
-        "المزمل",
-        "المدثر",
-        "القيامة",
-        "الإنسان",
-        "المرسلات",
-        "النبأ",
-        "النازعات",
-        "عبس",
-        "التكوير",
-        "الانفطار",
-        "المطففين",
-        "الانشقاق",
-        "البروج",
-        "الطارق",
-        "الأعلى",
-        "الغاشية",
-        "الفجر",
-        "البلد",
-        "الشمس",
-        "الليل",
-        "الضحى",
-        "الشرح",
-        "التين",
-        "العلق",
-        "القدر",
-        "البينة",
-        "الزلزلة",
-        "العاديات",
-        "القارعة",
-        "التكاثر",
-        "العصر",
-        "الهمزة",
-        "الفيل",
-        "قريش",
-        "الماعون",
-        "الكوثر",
-        "الكافرون",
-        "النصر",
-        "المسد",
-        "الإخلاص",
-        "الفلق",
-        "الناس",
-    ];
-    function updateCounters() {
-        // This function is now handled by updateAllCounters()
-        updateAllCounters();
-    }
+
+    // Generate surah buttons
     function generateSurahButtons() {
+        console.log('Generating surah buttons');
         const surahGrid = document.getElementById("surahGrid");
         if (!surahGrid) {
             console.log('Surah grid not found');
@@ -346,7 +293,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 surahBtn.classList.add("read");
                 surahBtn.textContent = name + " ✓";
             }
+            
             surahBtn.addEventListener("click", function () {
+                console.log(`Surah button clicked: ${name} (${index + 1})`);
                 if (!(sharedData.quran.readSurahs || []).includes(index + 1)) {
                     // Update local data immediately
                     if (!sharedData.quran.readSurahs) sharedData.quran.readSurahs = [];
@@ -380,39 +329,15 @@ document.addEventListener("DOMContentLoaded", function () {
                     showNotification(`تم قراءة سورة ${name} بنجاح! 📖`);
                 }
             });
+            
             surahGrid.appendChild(surahBtn);
         });
+        console.log('Surah buttons generated successfully');
     }
-    const shareProgressBtn = document.getElementById("shareProgress");
-    if (shareProgressBtn) {
-        shareProgressBtn.addEventListener("click", function () {
-            const shareText = `أهديت ${sharedData.quran.totalReadings || 0} قراءة قرآن لـ يوسف أحمد. شارك معي في الصدقة الجارية!`;
-            if (navigator.share) {
-                navigator.share({ title: "صدقة جارية", text: shareText, url: window.location.href });
-            } else {
-                navigator.clipboard.writeText(shareText + "\n" + window.location.href);
-                alert("تم نسخ الرابط للحافظة");
-            }
-        });
-    }
-    const completeKhatmaBtn = document.getElementById("completeKhatma");
-    if (completeKhatmaBtn) {
-        completeKhatmaBtn.addEventListener("click", function () {
-            if ((sharedData.quran.readSurahs || []).length >= 114) {
-                sharedData.quran.completedKhatmat++;
-                showNotification("🎉 تم إتمام ختمة قرآن كاملة! مبروك!");
-                sharedData.quran.readSurahs = [];
-                document.querySelectorAll(".surah-btn").forEach((btn) => {
-                    btn.classList.remove("read");
-                    btn.textContent = surahNames[parseInt(btn.dataset.surah) - 1];
-                });
-                updateAllCounters();
-                updateQuranData();
-            }
-        });
-    }
+
     // Update interaction counter on server
     async function updateInteractionCounter(type) {
+        console.log(`Updating interaction counter for ${type}`);
         try {
             const response = await fetch('api.php?action=updateInteraction', {
                 method: 'POST',
@@ -425,6 +350,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (result.success) {
                 sharedData = result.data;
                 updateAllCounters();
+                console.log(`Interaction counter for ${type} updated successfully`);
             } else {
                 console.log('Error updating interaction:', result);
             }
@@ -433,9 +359,14 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    // Initialize interaction buttons
+    console.log('Initializing interaction buttons');
+    
     const giftSurahBtn = document.getElementById("giftSurah");
     if (giftSurahBtn) {
+        console.log('Setting up gift surah button');
         giftSurahBtn.addEventListener("click", function () {
+            console.log('Gift surah button clicked');
             // Update local display immediately
             sharedData.interactions.surahGifts++;
             updateAllCounters();
@@ -450,11 +381,15 @@ document.addEventListener("DOMContentLoaded", function () {
             updateInteractionCounter('surahGifts');
             showNotification("تم إهداء سورة بنجاح! 🌟");
         });
+    } else {
+        console.log('Gift surah button not found');
     }
 
     const prayNowBtn = document.getElementById("prayNow");
     if (prayNowBtn) {
+        console.log('Setting up pray now button');
         prayNowBtn.addEventListener("click", function () {
+            console.log('Pray now button clicked');
             // Update local display immediately
             sharedData.interactions.prayers++;
             updateAllCounters();
@@ -469,11 +404,15 @@ document.addEventListener("DOMContentLoaded", function () {
             updateInteractionCounter('prayers');
             showNotification("تم الدعاء بنجاح! 🙏");
         });
+    } else {
+        console.log('Pray now button not found');
     }
 
     const readJuzBtn = document.getElementById("readJuz");
     if (readJuzBtn) {
+        console.log('Setting up read juz button');
         readJuzBtn.addEventListener("click", function () {
+            console.log('Read juz button clicked');
             // Update local display immediately
             sharedData.interactions.juzReads++;
             updateAllCounters();
@@ -488,225 +427,176 @@ document.addEventListener("DOMContentLoaded", function () {
             updateInteractionCounter('juzReads');
             showNotification("تم قراءة جزء بنجاح! 📖");
         });
+    } else {
+        console.log('Read juz button not found');
     }
-    const hesnButtons = {
-        func5: "حصن المسلم من أذكار الكتاب والسنة (5) الدعاء لمن لبس ثوبا جديدا",
-        func6: "حصن المسلم من أذكار الكتاب والسنة (6) ما يقول إذا وضع ثوبه",
-        func11: "حصن المسلم من أذكار الكتاب والسنة (11) الذكر عند الخروج من المنزل",
-        func12: "حصن المسلم من أذكار الكتاب والسنة (12) الذكر عند دخول المنزل",
-        func14: "حصن المسلم من أذكار الكتاب والسنة (14) دعاء دخول المسجد",
-        func15: "حصن المسلم من أذكار الكتاب والسنة (15) دعاء الخروج من المسجد",
-        func16: "حصن المسلم من أذكار الكتاب والسنة (16) أذكار الذان",
-        func18: "حصن المسلم من أذكار الكتاب والسنة (18) دعاء الركوع",
-        func19: "حصن المسلم من أذكار الكتاب والسنة (19) دعاء الرفع من الركوع",
-        func20: "حصن المسلم من أذكار الكتاب والسنة (20) دعاء السجود",
-        func21: "حصن المسلم من أذكار الكتاب والسنة (21) دعاء الجلسة بين السجدتين",
-        func22: "حصن المسلم من أذكار الكتاب والسنة (22) دعاء سجود التلاوة",
-        func23: "حصن المسلم من أذكار الكتاب والسنة (23) التشهد",
-        func25: "حصن المسلم من أذكار الكتاب والسنة (25) الدعاء بعد التشهد الأخير قبل السلام",
-        func26: "حصن المسلم من أذكار الكتاب والسنة (26) الأذكار بعد السلام من الصلاة",
-        func27: "حصن المسلم من أذكار الكتاب والسنة (27) دعاء صلاة الاستخارة",
-        func28: "حصن المسلم من أذكار الكتاب والسنة (28) أذكار الصباح والمساء",
-        func29: "حصن المسلم من أذكار الكتاب والسنة (29) أذكار النوم",
-        func30: "حصن المسلم من أذكار الكتاب والسنة (30) الدعاء إذا تقلب ليلا",
-        func34: "حصن المسلم من أذكار الكتاب والسنة (34) الذكر عقب السلام من الوتر",
-        func35: "حصن المسلم من أذكار الكتاب والسنة (35) دعاء الهم والحزن",
-        func36: "حصن المسلم من أذكار الكتاب والسنة (36) دعاء الكرب",
-        func37: "حصن المسلم من أذكار الكتاب والسنة (37) دعاء لقا العدو و ذي السلطان",
-        func38: "حصن المسلم من أذكار الكتاب والسنة (38) دعاء من خاف ظلم السلطان",
-        func39: "حصن المسلم من أذكار الكتاب والسنة (39) الدعاء على العدو",
-        func40: "حصن المسلم من أذكار الكتاب والسنة (40) ما يقول من خاف قوما",
-        func41: "حصن المسلم من أذكار الكتاب والسنة (41) دعاء من أصابه شك في الإيمان",
-        func42: "حصن المسلم من أذكار الكتاب والسنة (42) دعاء قضا الدين",
-        func44: "حصن المسلم من أذكار الكتاب والسنة (44) دعاء من استصعب عليه أمر",
-        func45: "حصن المسلم من أذكار الكتاب والسنة (45) ما يقول ويفعل من أذنب ذنبا",
-        func46: "حصن المسلم من أذكار الكتاب والسنة (46) دعاء طرد الشيطان و وساوسه",
-        func47: "حصن المسلم من أذكار الكتاب والسنة (47) الدعاء حينما يقع ما لا يرضاه أو غلب على أمره",
-        func48: "حصن المسلم من أذكار الكتاب والسنة (48) تهنئة المولود له وجوابه",
-        func49: "حصن المسلم من أذكار الكتاب والسنة (49) ما يعوذ به الأولاد",
-        func50: "حصن المسلم من أذكار الكتاب والسنة (50) الدعاء للمريض في عيادته",
-        func51: "حصن المسلم من أذكار الكتاب والسنة (51) فضل عيادة المريض",
-        func53: "حصن المسلم من أذكار الكتاب والسنة (53) تلقين المحتضر",
-        func54: "حصن المسلم من أذكار الكتاب والسنة (54) دعاء من أصيب بمصيبة",
-        func55: "حصن المسلم من أذكار الكتاب والسنة (55) الدعاء عند إغماض الميت",
-        func56: "حصن المسلم من أذكار الكتاب والسنة (56) الدعاء للميت في الصلاة عليه",
-        func57: "حصن المسلم من أذكار الكتاب والسنة (57) الدعاء للفرط في الصلاة عليه",
-        func58: "حصن المسلم من أذكار الكتاب والسنة (58) دعاء التعزية",
-        func59: "حصن المسلم من أذكار الكتاب والسنة (59) الدعاء عند إدخال الميت القبر",
-        func60: "حصن المسلم من أذكار الكتاب والسنة (60) الدعاء بعد دفن الميت",
-        func108: "حصن المسلم من أذكار الكتاب والسنة (108) فضل الصلاة على النبي صلى الله عليه و سلم",
-        func109: "حصن المسلم من أذكار الكتاب والسنة (109) إفشا السلام",
-        func110: "حصن المسلم من أذكار الكتاب والسنة (110) كيف يرد السلام على الكافر إذا سلم",
-        func112: "حصن المسلم من أذكار الكتاب والسنة (112) دعاء نباح الكلاب بالليل",
-        func113: "حصن المسلم من أذكار الكتاب والسنة (113) الدعاء لمن سببته",
-        func114: "حصن المسلم من أذكار الكتاب والسنة (114) ما يقول المسلم إذا مدح المسلم",
-        func115: "حصن المسلم من أذكار الكتاب والسنة (115) ما يقول المسلم إذا زكي",
-        func116: "حصن المسلم من أذكار الكتاب والسنة (116) كيف يلبي المحرم في الحج أو العمرة",
-        func117: "حصن المسلم من أذكار الكتاب والسنة (117) التكبير إذا أتى الركن الأسود",
-        func118: "حصن المسلم من أذكار الكتاب والسنة (118) الدعاء بين الركن اليماني والحجر الأسود",
-        func120: "حصن المسلم من أذكار الكتاب والسنة (120) الدعاء يوم عرفة (عرفه)",
-        func121: "حصن المسلم من أذكار الكتاب والسنة (121) الذكر عند المشعر الحرام",
-        func122: "حصن المسلم من أذكار الكتاب والسنة (122) التكبير عند رمي الجمار مع كل حصاة",
-        func123: "حصن المسلم من أذكار الكتاب والسنة (123) دعاء التعجب والأمر السار",
-        func124: "حصن المسلم من أذكار الكتاب والسنة (124) ما يفعل من أتاه أمر يسره",
-        func125: "حصن المسلم من أذكار الكتاب والسنة (125) ما يقول من أحس وجعا في جسده",
-        func127: "حصن المسلم من أذكار الكتاب والسنة (127) ما يقال عند الفزع",
-        func128: "حصن المسلم من أذكار الكتاب والسنة (128) ما يقول عند الذبح أو النحر",
-        func129: "حصن المسلم من أذكار الكتاب والسنة (129) ما يقول لرد كيد مردة الشياطين",
-        func130: "حصن المسلم من أذكار الكتاب والسنة (130) الاستغفار و التوبة",
-        func131: "حصن المسلم من أذكار الكتاب والسنة (131) فضل التسبيح و التحميد و التهليل و التكبير",
-        func132: "حصن المسلم من أذكار الكتاب والسنة (132) كيف كان النبي يسبح",
-        func133: "حصن المسلم من أذكار الكتاب والسنة (133) من أنواع الخير والداب الجامعة",
-    };
-    const hesnAudioFiles = {
-        func5: "audios/حصن المسلم من أذكار الكتاب والسنة (5) الدعاء لمن لبس ثوبا جديدا.mp3",
-        func6: "audios/حصن المسلم من أذكار الكتاب والسنة (6) ما يقول إذا وضع ثوبه.mp3",
-        func11: "audios/حصن المسلم من أذكار الكتاب والسنة (11) الذكر عند الخروج من المنزل.mp3",
-        func12: "audios/حصن المسلم من أذكار الكتاب والسنة (12) الذكر عند دخول المنزل.mp3",
-        func14: "audios/حصن المسلم من أذكار الكتاب والسنة (14) دعاء دخول المسجد.mp3",
-        func15: "audios/حصن المسلم من أذكار الكتاب والسنة (15) دعاء الخروج من المسجد.mp3",
-        func16: "audios/حصن المسلم من أذكار الكتاب والسنة (16) أذكار الذان.mp3",
-        func18: "audios/حصن المسلم من أذكار الكتاب والسنة (18) دعاء الركوع.mp3",
-        func19: "audios/حصن المسلم من أذكار الكتاب والسنة (19) دعاء الرفع من الركوع.mp3",
-        func20: "audios/حصن المسلم من أذكار الكتاب والسنة (20) دعاء السجود.mp3",
-        func21: "audios/حصن المسلم من أذكار الكتاب والسنة (21) دعاء الجلسة بين السجدتين.mp3",
-        func22: "audios/حصن المسلم من أذكار الكتاب والسنة (22) دعاء سجود التلاوة.mp3",
-        func23: "audios/حصن المسلم من أذكار الكتاب والسنة (23) التشهد.mp3",
-        func25: "audios/حصن المسلم من أذكار الكتاب والسنة (25) الدعاء بعد التشهد الأخير قبل السلام.mp3",
-        func26: "audios/حصن المسلم من أذكار الكتاب والسنة (26) الأذكار بعد السلام من الصلاة.mp3",
-        func27: "audios/حصن المسلم من أذكار الكتاب والسنة (27) دعاء صلاة الاستخارة.mp3",
-        func28: "audios/حصن المسلم من أذكار الكتاب والسنة (28) أذكار الصباح والمساء.mp3",
-        func29: "audios/حصن المسلم من أذكار الكتاب والسنة (29) أذكار النوم.mp3",
-        func30: "audios/حصن المسلم من أذكار الكتاب والسنة (30) الدعاء إذا تقلب ليلا.mp3",
-        func34: "audios/حصن المسلم من أذكار الكتاب والسنة (34) الذكر عقب السلام من الوتر.mp3",
-        func35: "audios/حصن المسلم من أذكار الكتاب والسنة (35) دعاء الهم والحزن.mp3",
-        func36: "audios/حصن المسلم من أذكار الكتاب والسنة (36) دعاء الكرب.mp3",
-        func37: "audios/حصن المسلم من أذكار الكتاب والسنة (37) دعاء لقا العدو و ذي السلطان.mp3",
-        func38: "audios/حصن المسلم من أذكار الكتاب والسنة (38) دعاء من خاف ظلم السلطان.mp3",
-        func39: "audios/حصن المسلم من أذكار الكتاب والسنة (39) الدعاء على العدو.mp3",
-        func40: "audios/حصن المسلم من أذكار الكتاب والسنة (40) ما يقول من خاف قوما.mp3",
-        func41: "audios/حصن المسلم من أذكار الكتاب والسنة (41) دعاء من أصابه شك في الإيمان.mp3",
-        func42: "audios/حصن المسلم من أذكار الكتاب والسنة (42) دعاء قضا الدين.mp3",
-        func44: "audios/حصن المسلم من أذكار الكتاب والسنة (44) دعاء من استصعب عليه أمر.mp3",
-        func45: "audios/حصن المسلم من أذكار الكتاب والسنة (45) ما يقول ويفعل من أذنب ذنبا.mp3",
-        func46: "audios/حصن المسلم من أذكار الكتاب والسنة (46) دعاء طرد الشيطان و وساوسه.mp3",
-        func47: "audios/حصن المسلم من أذكار الكتاب والسنة (47) الدعاء حينما يقع ما لا يرضاه أو غلب على أمره.mp3",
-        func48: "audios/حصن المسلم من أذكار الكتاب والسنة (48) تهنئة المولود له وجوابه.mp3",
-        func49: "audios/حصن المسلم من أذكار الكتاب والسنة (49) ما يعوذ به الأولاد.mp3",
-        func50: "audios/حصن المسلم من أذكار الكتاب والسنة (50) الدعاء للمريض في عيادته.mp3",
-        func51: "audios/حصن المسلم من أذكار الكتاب والسنة (51) فضل عيادة المريض.mp3",
-        func53: "audios/حصن المسلم من أذكار الكتاب والسنة (53) تلقين المحتضر.mp3",
-        func54: "حصن المسلم من أذكار الكتاب والسنة (54) دعاء من أصيب بمصيبة.mp3",
-        func55: "audios/حصن المسلم من أذكار الكتاب والسنة (55) الدعاء عند إغماض الميت.mp3",
-        func56: "audios/حصن المسلم من أذكار الكتاب والسنة (56) الدعاء للميت في الصلاة عليه.mp3",
-        func57: "audios/حصن المسلم من أذكار الكتاب والسنة (57) الدعاء للفرط في الصلاة عليه.mp3",
-        func58: "audios/حصن المسلم من أذكار الكتاب والسنة (58) دعاء التعزية.mp3",
-        func59: "audios/حصن المسلم من أذكار الكتاب والسنة (59) الدعاء عند إدخال الميت القبر.mp3",
-        func60: "audios/حصن المسلم من أذكار الكتاب والسنة (60) الدعاء بعد دفن الميت.mp3",
-        func108: "audios/حصن المسلم من أذكار الكتاب والسنة (108) فضل الصلاة على النبي صلى الله عليه و سلم.mp3",
-        func109: "audios/حصن المسلم من أذكار الكتاب والسنة (109) إفشا السلام.mp3",
-        func110: "audios/حصن المسلم من أذكار الكتاب والسنة (110) كيف يرد السلام على الكافر إذا سلم.mp3",
-        func112: "audios/حصن المسلم من أذكار الكتاب والسنة (112) دعاء نباح الكلاب بالليل.mp3",
-        func113: "audios/حصن المسلم من أذكار الكتاب والسنة (113) الدعاء لمن سببته.mp3",
-        func114: "audios/حصن المسلم من أذكار الكتاب والسنة (114) ما يقول المسلم إذا مدح المسلم.mp3",
-        func115: "audios/حصن المسلم من أذكار الكتاب والسنة (115) ما يقول المسلم إذا زكي.mp3",
-        func116: "audios/حصن المسلم من أذكار الكتاب والسنة (116) كيف يلبي المحرم في الحج أو العمرة.mp3",
-        func117: "audios/حصن المسلم من أذكار الكتاب والسنة (117) التكبير إذا أتى الركن الأسود.mp3",
-        func118: "audios/حصن المسلم من أذكار الكتاب والسنة (118) الدعاء بين الركن اليماني والحجر الأسود.mp3",
-        func120: "audios/حصن المسلم من أذكار الكتاب والسنة (120) الدعاء يوم عرفة (عرفه).mp3",
-        func121: "audios/حصن المسلم من أذكار الكتاب والسنة (121) الذكر عند المشعر الحرام.mp3",
-        func122: "audios/حصن المسلم من أذكار الكتاب والسنة (122) التكبير عند رمي الجمار مع كل حصاة.mp3",
-        func123: "audios/حصن المسلم من أذكار الكتاب والسنة (123) دعاء التعجب والأمر السار.mp3",
-        func124: "audios/حصن المسلم من أذكار الكتاب والسنة (124) ما يفعل من أتاه أمر يسره.mp3",
-        func125: "audios/حصن المسلم من أذكار الكتاب والسنة (125) ما يقول من أحس وجعا في جسده.mp3",
-        func127: "audios/حصن المسلم من أذكار الكتاب والسنة (127) ما يقال عند الفزع.mp3",
-        func128: "audios/حصن المسلم من أذكار الكتاب والسنة (128) ما يقول عند الذبح أو النحر.mp3",
-        func129: "audios/حصن المسلم من أذكار الكتاب والسنة (129) ما يقول لرد كيد مردة الشياطين.mp3",
-        func130: "audios/حصن المسلم من أذكار الكتاب والسنة (130) الاستغفار و التوبة.mp3",
-        func131: "audios/حصن المسلم من أذكار الكتاب والسنة (131) فضل التسبيح و التحميد و التهليل و التكبير.mp3",
-        func132: "audios/حصن المسلم من أذكار الكتاب والسنة (132) كيف كان النبي يسبح.mp3",
-        func133: "audios/حصن المسلم من أذكار الكتاب والسنة (133) من أنواع الخير والداب الجامعة.mp3",
-    };
-    Object.entries(hesnButtons).forEach(([buttonId, title]) => {
-        const button = document.getElementById(buttonId);
-        if (button) {
-            button.addEventListener("click", function (e) {
-                e.preventDefault();
-                const playerNameElement = document.getElementById("playerName");
-                if (playerNameElement) {
-                    playerNameElement.textContent = title;
-                }
-                this.style.transform = "scale(0.95)";
-                setTimeout(() => {
-                    this.style.transform = "scale(1)";
-                }, 100);
-                document.querySelectorAll(".hesn-btn").forEach((btn) => {
-                    btn.classList.remove("active");
-                });
-                this.classList.add("active");
-                const audioPlayer = document.getElementById("musicPlayer");
-                const audioFile = hesnAudioFiles[buttonId];
-                if (audioPlayer && audioFile) {
-                    const existingSpinner = audioPlayer.parentNode.querySelector(".loading-spinner");
-                    if (existingSpinner) {
-                        existingSpinner.remove();
+
+    // Initialize hesn buttons
+    function initHesnButtons() {
+        console.log('Initializing hesn buttons');
+        Object.entries(hesnButtons).forEach(([buttonId, title]) => {
+            const button = document.getElementById(buttonId);
+            if (button) {
+                console.log(`Setting up hesn button: ${buttonId}`);
+                button.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    console.log(`Hesn button clicked: ${buttonId}`);
+                    
+                    const playerNameElement = document.getElementById("playerName");
+                    if (playerNameElement) {
+                        playerNameElement.textContent = title;
                     }
-                    audioPlayer.style.opacity = "0.5";
-                    const loadingSpinner = document.createElement("div");
-                    loadingSpinner.className = "loading-spinner";
-                    loadingSpinner.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
-                    loadingSpinner.style.cssText = "position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #ffd700; font-size: 20px;";
-                    audioPlayer.parentNode.style.position = "relative";
-                    audioPlayer.parentNode.appendChild(loadingSpinner);
-                    audioPlayer.removeEventListener("canplaythrough", audioPlayer.canplaythroughHandler);
-                    audioPlayer.removeEventListener("error", audioPlayer.errorHandler);
-                    audioPlayer.canplaythroughHandler = function () {
-                        audioPlayer.style.opacity = "1";
-                        loadingSpinner.remove();
-                        audioPlayer.play().catch((e) => console.log("Play failed:", e));
-                    };
-                    audioPlayer.errorHandler = function (e) {
-                        audioPlayer.style.opacity = "1";
-                        loadingSpinner.remove();
-                        alert("عذراً، لا يمكن تحميل الملف الصوتي");
-                    };
-                    audioPlayer.addEventListener("canplaythrough", audioPlayer.canplaythroughHandler);
-                    audioPlayer.addEventListener("error", audioPlayer.errorHandler);
-                    audioPlayer.src = audioFile;
-                    audioPlayer.load();
-                } else {
-                    alert("عذراً، لا يوجد ملف صوتي لهذا الدعاء");
-                }
-            });
-        }
-    });
-    document.querySelectorAll(".hesn-btn").forEach((button) => {
-        const buttonId = button.id;
-        if (!hesnAudioFiles[buttonId]) {
-            button.style.opacity = "0.5";
-            button.style.cursor = "not-allowed";
-            button.title = "لا يوجد ملف صوتي لهذا الدعاء";
-            button.disabled = !0;
-        }
-    });
-    window.searchHadith = function () {
-        const searchTerm = document.getElementById("hadithSearch").value;
-        if (searchTerm.trim() !== "") {
-            const searchUrl = `https://sunnah.one/?s=${encodeURIComponent(searchTerm)}`;
-            window.open(searchUrl, "_blank");
-        } else {
-            alert("يرجى إدخال نص للبحث");
-        }
-    };
-    const hadithSearchInput = document.getElementById("hadithSearch");
-    if (hadithSearchInput) {
-        hadithSearchInput.addEventListener("keypress", function (e) {
-            if (e.key === "Enter") {
-            searchHadith();
+                    
+                    this.style.transform = "scale(0.95)";
+                    setTimeout(() => {
+                        this.style.transform = "scale(1)";
+                    }, 100);
+                    
+                    document.querySelectorAll(".hesn-btn").forEach((btn) => {
+                        btn.classList.remove("active");
+                    });
+                    
+                    this.classList.add("active");
+                    
+                    const audioPlayer = document.getElementById("musicPlayer");
+                    const audioFile = hesnAudioFiles[buttonId];
+                    
+                    if (audioPlayer && audioFile) {
+                        console.log(`Playing audio file: ${audioFile}`);
+                        
+                        const existingSpinner = audioPlayer.parentNode.querySelector(".loading-spinner");
+                        if (existingSpinner) {
+                            existingSpinner.remove();
+                        }
+                        
+                        audioPlayer.style.opacity = "0.5";
+                        
+                        const loadingSpinner = document.createElement("div");
+                        loadingSpinner.className = "loading-spinner";
+                        loadingSpinner.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+                        loadingSpinner.style.cssText = "position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #ffd700; font-size: 20px;";
+                        
+                        audioPlayer.parentNode.style.position = "relative";
+                        audioPlayer.parentNode.appendChild(loadingSpinner);
+                        
+                        audioPlayer.removeEventListener("canplaythrough", audioPlayer.canplaythroughHandler);
+                        audioPlayer.removeEventListener("error", audioPlayer.errorHandler);
+                        
+                        audioPlayer.canplaythroughHandler = function () {
+                            audioPlayer.style.opacity = "1";
+                            loadingSpinner.remove();
+                            audioPlayer.play().catch((e) => console.log("Play failed:", e));
+                        };
+                        
+                        audioPlayer.errorHandler = function (e) {
+                            audioPlayer.style.opacity = "1";
+                            loadingSpinner.remove();
+                            console.error("Audio error:", e);
+                            alert("عذراً، لا يمكن تحميل الملف الصوتي");
+                        };
+                        
+                        audioPlayer.addEventListener("canplaythrough", audioPlayer.canplaythroughHandler);
+                        audioPlayer.addEventListener("error", audioPlayer.errorHandler);
+                        
+                        audioPlayer.src = audioFile;
+                        audioPlayer.load();
+                    } else {
+                        console.log(`Audio player or file not found. Player: ${!!audioPlayer}, File: ${!!audioFile}`);
+                        alert("عذراً، لا يوجد ملف صوتي لهذا الدعاء");
+                    }
+                });
+            } else {
+                console.log(`Hesn button not found: ${buttonId}`);
             }
         });
+
+        // Disable buttons without audio files
+        document.querySelectorAll(".hesn-btn").forEach((button) => {
+            const buttonId = button.id;
+            if (!hesnAudioFiles[buttonId]) {
+                console.log(`Disabling hesn button without audio file: ${buttonId}`);
+                button.style.opacity = "0.5";
+                button.style.cursor = "not-allowed";
+                button.title = "لا يوجد ملف صوتي لهذا الدعاء";
+                button.disabled = true;
+            }
+        });
+        
+        // Function to check audio files availability
+        function checkAudioFilesAvailability() {
+            console.log('🔍 Checking audio files availability...');
+            const totalButtons = Object.keys(hesnButtons).length;
+            const totalAudioFiles = Object.keys(hesnAudioFiles).length;
+            
+            console.log(`📊 Total buttons: ${totalButtons}`);
+            console.log(`📊 Total audio files: ${totalAudioFiles}`);
+            
+            // Check which buttons have audio files
+            Object.keys(hesnButtons).forEach(buttonId => {
+                if (hesnAudioFiles[buttonId]) {
+                    console.log(`✅ ${buttonId}: Audio file available`);
+                } else {
+                    console.log(`❌ ${buttonId}: No audio file`);
+                }
+            });
+            
+            // Check which audio files don't have buttons
+            Object.keys(hesnAudioFiles).forEach(audioId => {
+                if (!hesnButtons[audioId]) {
+                    console.log(`⚠️ ${audioId}: Audio file exists but no button`);
+                }
+            });
+            
+            console.log('🔍 Audio files check completed!');
+        }
+        
+        // Run audio files check after initialization
+        setTimeout(checkAudioFilesAvailability, 1000);
     }
+
+    // Initialize share progress button
+    const shareProgressBtn = document.getElementById("shareProgress");
+    if (shareProgressBtn) {
+        console.log('Setting up share progress button');
+        shareProgressBtn.addEventListener("click", function () {
+            console.log('Share progress button clicked');
+            const shareText = `أهديت ${sharedData.quran.totalReadings || 0} قراءة قرآن لـ يوسف أحمد. شارك معي في الصدقة الجارية!`;
+            if (navigator.share) {
+                navigator.share({ title: "صدقة جارية", text: shareText, url: window.location.href });
+            } else {
+                navigator.clipboard.writeText(shareText + "\n" + window.location.href);
+                alert("تم نسخ الرابط للحافظة");
+            }
+        });
+    } else {
+        console.log('Share progress button not found');
+    }
+
+    // Initialize complete khatma button
+    const completeKhatmaBtn = document.getElementById("completeKhatma");
+    if (completeKhatmaBtn) {
+        console.log('Setting up complete khatma button');
+        completeKhatmaBtn.addEventListener("click", function () {
+            console.log('Complete khatma button clicked');
+            if ((sharedData.quran.readSurahs || []).length >= 114) {
+                sharedData.quran.completedKhatmat++;
+                showNotification("🎉 تم إتمام ختمة قرآن كاملة! مبروك!");
+                sharedData.quran.readSurahs = [];
+                document.querySelectorAll(".surah-btn").forEach((btn) => {
+                    btn.classList.remove("read");
+                    btn.textContent = surahNames[parseInt(btn.dataset.surah) - 1];
+                });
+                updateAllCounters();
+                updateQuranData();
+            }
+        });
+    } else {
+        console.log('Complete khatma button not found');
+    }
+
+    // Show notification function
     function showNotification(message) {
+        console.log(`Showing notification: ${message}`);
         const notification = document.createElement("div");
         notification.className = "notification";
         notification.textContent = message;
@@ -731,6 +621,8 @@ document.addEventListener("DOMContentLoaded", function () {
             }, 500);
         }, 3000);
     }
+
+    // Add animation styles
     const style = document.createElement("style");
     style.textContent = `
         @keyframes slideIn {
@@ -743,49 +635,46 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     `;
     document.head.appendChild(style);
+
     // Initialize with shared data
+    console.log('Loading initial data');
     loadSharedData();
+    
+    // Generate surah buttons immediately even before loading data
+    // This ensures the buttons are visible even if the data loading fails
     generateSurahButtons();
     
-    // Initialize prayers slider functionality
-    function initPrayersSlider() {
-        const slides = document.querySelectorAll('.prayer-slide');
-        const prevBtn = document.getElementById('prayersPrevBtn');
-        const nextBtn = document.getElementById('prayersNextBtn');
-        let currentSlide = 0;
-
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.classList.remove('active');
-                if (i === index) {
-                    slide.classList.add('active');
-                }
-            });
+    // Check if all required elements exist
+    console.log('Checking required elements');
+    const requiredElements = [
+        'prayersCarousel', // Updated from 'prayersSlider' to 'prayersCarousel'
+        'musicPlayer',
+        'playerName',
+        'hadithSearch',
+        'surahGrid',
+        'giftSurah',
+        'prayNow',
+        'readJuz',
+        'do3aa',
+        'tasbeh',
+        'hamd',
+        'takbeer'
+    ];
+    
+    requiredElements.forEach(elementId => {
+        const element = document.getElementById(elementId);
+        if (element) {
+            console.log(`✓ ${elementId} found`);
+        } else {
+            console.log(`✗ ${elementId} not found`);
         }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        }
-
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-            showSlide(currentSlide);
-        }
-
-        // Event listeners
-        if (nextBtn) nextBtn.addEventListener('click', nextSlide);
-        if (prevBtn) prevBtn.addEventListener('click', prevSlide);
-
-        // Auto-advance slides
-        setInterval(nextSlide, 8000);
-
-        // Show first slide
-        showSlide(0);
+    });
+    
+    // Initialize hesn buttons if data is already available
+    if (Object.keys(hesnButtons).length > 0 && Object.keys(hesnAudioFiles).length > 0) {
+        initHesnButtons();
     }
 });
-
-
 
 // PWA Installation
 let deferredPrompt;
@@ -1007,3 +896,5 @@ function initAnniversaryCountdown() {
 document.addEventListener("DOMContentLoaded", function () {
     initAnniversaryCountdown();
 });
+
+

@@ -126,124 +126,132 @@
     <section class="prayers-memories-section">
         <div class="container">
             <h3 class="section-title">أدعية وذكريات</h3>
-            <div class="row justify-content-center">
-                <div class="col-lg-10 mx-auto">
-                    <div class="prayers-container">
-                        <div class="prayers-slider">
-                            <div class="prayers-slider-container">
-                                <div class="prayer-slide active" id="prayer1">
-                            <div class="prayer-icon">
-                                <i class="fas fa-heart"></i>
-                            </div>
-                            <h4>اللهم ارحم <span class="deceased-name">يوسف أحمد</span></h4>
-                            <p class="prayer-text">اللهم ارحمه واغفر له وأكرم نزله ووسع مدخله واغسله بالماء والثلج
-                                والبرد</p>
-                            <div class="memory-text">
-                                <i class="fas fa-quote-right"></i>
-                                <p>"كان <span class="deceased-name">يوسف</span> مثالاً للخير والصلاح، دائم الابتسامة
-                                    ومحب للخير"</p>
-                            </div>
-                        </div>
-
-                                <div class="prayer-slide" id="prayer2">
-                            <div class="prayer-icon">
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <h4>اللهم اجعل قبر <span class="deceased-name">يوسف أحمد</span> روضة من رياض الجنة</h4>
-                            <p class="prayer-text">اللهم نور له قبره واجعل قبره روضة من رياض الجنة ولا تجعله حفرة من حفر
-                                النار</p>
-                            <div class="memory-text">
-                                <i class="fas fa-quote-right"></i>
-                                <p>"كان <span class="deceased-name">يوسف</span> يحب القرآن الكريم ويقرأه يومياً"</p>
-                            </div>
-                        </div>
-
-                                <div class="prayer-slide" id="prayer3">
-                            <div class="prayer-icon">
-                                <i class="fas fa-dove"></i>
-                            </div>
-                            <h4>اللهم اجعل <span class="deceased-name">يوسف أحمد</span> في الفردوس الأعلى</h4>
-                            <p class="prayer-text">اللهم اجعله من أهل الجنة وأكرمه برؤية وجهك الكريم</p>
-                            <div class="memory-text">
-                                <i class="fas fa-quote-right"></i>
-                                <p>"كان <span class="deceased-name">يوسف</span> يساعد الفقراء والمحتاجين بكل ما يملك"
-                                </p>
-                            </div>
-                        </div>
-
-                                <div class="prayer-slide" id="prayer4">
-                            <div class="prayer-icon">
-                                <i class="fas fa-mosque"></i>
-                            </div>
-                            <h4>اللهم اجعل <span class="deceased-name">يوسف أحمد</span> من الشهداء والصالحين</h4>
-                            <p class="prayer-text">اللهم اجعله من عبادك الصالحين وحزبك المفلحين</p>
-                            <div class="memory-text">
-                                <i class="fas fa-quote-right"></i>
-                                <p>"كان <span class="deceased-name">يوسف</span> يحب الصلاة في المسجد ويحث أهله عليها"
-                                </p>
-                            </div>
-                        </div>
-
-                                <div class="prayer-slide" id="prayer5">
-                            <div class="prayer-icon">
-                                <i class="fas fa-sun"></i>
-                            </div>
-                            <h4>اللهم اجعل <span class="deceased-name">يوسف أحمد</span> نوراً لأهله</h4>
-                            <p class="prayer-text">اللهم اجعل ذكره خيراً واجعل رحيله راحة له ولأهله</p>
-                            <div class="memory-text">
-                                <i class="fas fa-quote-right"></i>
-                                <p>"كان <span class="deceased-name">يوسف</span> يحب أهله ويحرص على راحتهم"</p>
-                            </div>
+            <div class="prayers-slider-wrapper">
+                <div id="prayersCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#prayersCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#prayersCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#prayersCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#prayersCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                        <button type="button" data-bs-target="#prayersCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                        <button type="button" data-bs-target="#prayersCarousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                        <button type="button" data-bs-target="#prayersCarousel" data-bs-slide-to="6" aria-label="Slide 7"></button>
+                        <button type="button" data-bs-target="#prayersCarousel" data-bs-slide-to="7" aria-label="Slide 8"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="prayer-content">
+                                <div class="prayer-icon">
+                                    <i class="fas fa-heart"></i>
                                 </div>
-
-                                <div class="prayer-slide" id="prayer6">
-                                    <div class="prayer-icon">
-                                        <i class="fas fa-pray"></i>
-                                    </div>
-                                    <h4>اللهم اجعل <span class="deceased-name">يوسف أحمد</span> من عبادك الصالحين</h4>
-                                    <p class="prayer-text">اللهم اجعله من حزبك المفلحين واجعل قبره روضة من رياض الجنة</p>
-                                    <div class="memory-text">
-                                        <i class="fas fa-quote-right"></i>
-                                        <p>"كان <span class="deceased-name">يوسف</span> يحب الخير ويحب إسعاد الآخرين"</p>
+                                <h4>اللهم ارحم <span class="deceased-name">يوسف أحمد</span></h4>
+                                <p class="prayer-text">اللهم ارحمه واغفر له وأكرم نزله ووسع مدخله واغسله بالماء والثلج والبرد</p>
+                                <div class="memory-text">
+                                    <i class="fas fa-quote-right"></i>
+                                    <p>"كان <span class="deceased-name">يوسف</span> مثالاً للخير والصلاح، دائم الابتسامة ومحب للخير"</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="prayer-content">
+                                <div class="prayer-icon">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <h4>اللهم اجعل قبر <span class="deceased-name">يوسف أحمد</span> روضة من رياض الجنة</h4>
+                                <p class="prayer-text">اللهم نور له قبره واجعل قبره روضة من رياض الجنة ولا تجعله حفرة من حفر النار</p>
+                                <div class="memory-text">
+                                    <i class="fas fa-quote-right"></i>
+                                    <p>"كان <span class="deceased-name">يوسف</span> يحب القرآن الكريم ويقرأه يومياً"</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="prayer-content">
+                                <div class="prayer-icon">
+                                    <i class="fas fa-dove"></i>
+                                </div>
+                                <h4>اللهم اجعل <span class="deceased-name">يوسف أحمد</span> في الفردوس الأعلى</h4>
+                                <p class="prayer-text">اللهم اجعله من أهل الجنة وأكرمه برؤية وجهك الكريم</p>
+                                <div class="memory-text">
+                                    <i class="fas fa-quote-right"></i>
+                                    <p>"كان <span class="deceased-name">يوسف</span> يساعد الفقراء والمحتاجين بكل ما يملك"</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="prayer-content">
+                                <div class="prayer-icon">
+                                    <i class="fas fa-mosque"></i>
+                                </div>
+                                <h4>اللهم اجعل <span class="deceased-name">يوسف أحمد</span> من الشهداء والصالحين</h4>
+                                <p class="prayer-text">اللهم اجعله من عبادك الصالحين وحزبك المفلحين</p>
+                                <div class="memory-text">
+                                    <i class="fas fa-quote-right"></i>
+                                    <p>"كان <span class="deceased-name">يوسف</span> يحب الصلاة في المسجد ويحث أهله عليها"</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="prayer-content">
+                                <div class="prayer-icon">
+                                    <i class="fas fa-sun"></i>
+                                </div>
+                                <h4>اللهم اجعل <span class="deceased-name">يوسف أحمد</span> نوراً لأهله</h4>
+                                <p class="prayer-text">اللهم اجعل ذكره خيراً واجعل رحيله راحة له ولأهله</p>
+                                <div class="memory-text">
+                                    <i class="fas fa-quote-right"></i>
+                                    <p>"كان <span class="deceased-name">يوسف</span> يحب أهله ويحرص على راحتهم"</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="prayer-content">
+                                <div class="prayer-icon">
+                                    <i class="fas fa-pray"></i>
+                                </div>
+                                <h4>اللهم اجعل <span class="deceased-name">يوسف أحمد</span> من عبادك الصالحين</h4>
+                                <p class="prayer-text">اللهم اجعله من حزبك المفلحين واجعل قبره روضة من رياض الجنة</p>
+                                <div class="memory-text">
+                                    <i class="fas fa-quote-right"></i>
+                                    <p>"كان <span class="deceased-name">يوسف</span> يحب الخير ويحب إسعاد الآخرين"</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="prayer-content">
+                                <div class="prayer-icon">
+                                    <i class="fas fa-heart-broken"></i>
+                                </div>
+                                <h4>اللهم ارحم <span class="deceased-name">يوسف أحمد</span> واغفر له</h4>
+                                <p class="prayer-text">اللهم ارحمه واغفر له وأكرم نزله ووسع مدخله واجعل قبره روضة من رياض الجنة</p>
+                                <div class="memory-text">
+                                    <i class="fas fa-quote-right"></i>
+                                    <p>"كان <span class="deceased-name">يوسف</span> مثالاً للوفاء والإخلاص"</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="prayer-content">
+                                <div class="prayer-icon">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <h4>اللهم اجعل <span class="deceased-name">يوسف أحمد</span> في أعلى عليين</h4>
+                                <p class="prayer-text">اللهم اجعله من أهل الجنة وأكرمه برؤية وجهك الكريم في الجنة</p>
+                                <div class="memory-text">
+                                    <i class="fas fa-quote-right"></i>
+                                    <p>"كان <span class="deceased-name">يوسف</span> يحب العلم ويسعى للخير"</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
-                                <div class="prayer-slide" id="prayer7">
-                                    <div class="prayer-icon">
-                                        <i class="fas fa-heart-broken"></i>
-                                    </div>
-                                    <h4>اللهم ارحم <span class="deceased-name">يوسف أحمد</span> واغفر له</h4>
-                                    <p class="prayer-text">اللهم ارحمه واغفر له وأكرم نزله ووسع مدخله واجعل قبره روضة من رياض الجنة</p>
-                                    <div class="memory-text">
-                                        <i class="fas fa-quote-right"></i>
-                                        <p>"كان <span class="deceased-name">يوسف</span> مثالاً للوفاء والإخلاص"</p>
-                                    </div>
-                                </div>
-
-                                <div class="prayer-slide" id="prayer8">
-                                    <div class="prayer-icon">
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <h4>اللهم اجعل <span class="deceased-name">يوسف أحمد</span> في أعلى عليين</h4>
-                                    <p class="prayer-text">اللهم اجعله من أهل الجنة وأكرمه برؤية وجهك الكريم في الجنة</p>
-                                    <div class="memory-text">
-                                        <i class="fas fa-quote-right"></i>
-                                        <p>"كان <span class="deceased-name">يوسف</span> يحب العلم ويسعى للخير"</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="prayers-slider-controls">
-                                <button class="prayers-prev-btn" id="prayersPrevBtn">
-                                    <i class="fas fa-chevron-right"></i>
-                                </button>
-                                <button class="prayers-next-btn" id="prayersNextBtn">
-                                    <i class="fas fa-chevron-left"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-
+                    <button class="carousel-control-prev" type="button" data-bs-target="#prayersCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">السابق</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#prayersCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">التالي</span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -293,7 +301,8 @@
                     <div class="quran-content">
                         <p class="quran-description">وَإِذَا قُرِئَ الْقُرْآنُ فَاسْتَمِعُواْ لَهُ وَأَنصِتُواْ
                             لَعَلَّكُمْ تُرْحَمُونَ</p>
-                        <p class="quran-subtitle">اختر السورة والقارئ المحبب لك واستمع مباشرة إلى التلاوة المباركة</p>
+                        <p class="quran-subtitle">اختر السورة التي قرأتها باسم <span
+                                class="deceased-name">يوسف أحمد</span></p>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -779,7 +788,7 @@
                         <p class="section-description">هنا يمكنك الاستماع والتحصين بحصن المسلم كاملة</p>
                     </div>
                     <div class="hesn-photo">
-                        <img src="images/fekD2AlzZmCJuF6KWCFe9NOfBA0TIF2wLg9HyNL9.jpg" alt="صورة يوسف أحمد"
+                        <img src="images/11111.jpg" alt="صورة يوسف أحمد"
                             class="deceased-photo">
                     </div>
                 </div>
@@ -795,192 +804,324 @@
             </div>
 
             <div class="hesn-buttons-container">
-                <div class="hesn-slider">
-                    <div class="hesn-slider-container">
-                        <div class="hesn-slide active" data-audio="audios/حصن المسلم من أذكار الكتاب والسنة (28) أذكار الصباح والمساء.mp3">
-                            <h4>أذكار الصباح والمساء</h4>
-                            <p>أذكار الصباح والمساء المباركة</p>
+
+                <div class="hesn-buttons-scroll">
+                    <div class="hesn-buttons">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func3">حصن المسلم من أذكار الكتاب والسنة (3) دعاء لبس
+                                    الثوب</button>
                             </div>
-                        <div class="hesn-slide" data-audio="audios/حصن المسلم من أذكار الكتاب والسنة (29) أذكار النوم.mp3">
-                            <h4>أذكار النوم</h4>
-                            <p>أذكار النوم المباركة</p>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func28">حصن المسلم من أذكار الكتاب والسنة (28) أذكار الصباح
+                                    والمساء</button>
                             </div>
-                        <div class="hesn-slide" data-audio="audios/حصن المسلم من أذكار الكتاب والسنة (35) دعاء الهم والحزن.mp3">
-                            <h4>دعاء الهم والحزن</h4>
-                            <p>دعاء لرفع الهم والحزن</p>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func29">حصن المسلم من أذكار الكتاب والسنة (29) أذكار
+                                    النوم</button>
                             </div>
-                        <div class="hesn-slide" data-audio="audios/حصن المسلم من أذكار الكتاب والسنة (36) دعاء الكرب.mp3">
-                            <h4>دعاء الكرب</h4>
-                            <p>دعاء لرفع الكرب</p>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func35">حصن المسلم من أذكار الكتاب والسنة (35) دعاء الهم
+                                    والحزن</button>
                             </div>
-                        <div class="hesn-slide" data-audio="audios/حصن المسلم من أذكار الكتاب والسنة (54) دعاء من أصيب بمصيبة.mp3">
-                            <h4>دعاء المصيبة</h4>
-                            <p>دعاء لمن أصيب بمصيبة</p>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func36">حصن المسلم من أذكار الكتاب والسنة (36) دعاء
+                                    الكرب</button>
                             </div>
-                        <div class="hesn-slide" data-audio="audios/حصن المسلم من أذكار الكتاب والسنة (70) الدعاء قبل الطعام.mp3">
-                            <h4>دعاء قبل الطعام</h4>
-                            <p>الدعاء قبل تناول الطعام</p>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func54">حصن المسلم من أذكار الكتاب والسنة (54) دعاء من أصيب
+                                    بمصيبة</button>
                             </div>
-                        <div class="hesn-slide" data-audio="audios/حصن المسلم من أذكار الكتاب والسنة (71) الدعاء عند الفراغ من الطعام.mp3">
-                            <h4>دعاء بعد الطعام</h4>
-                            <p>الدعاء بعد الانتهاء من الطعام</p>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func70">حصن المسلم من أذكار الكتاب والسنة (70) الدعاء قبل
+                                    الطعام</button>
                             </div>
-                        <div class="hesn-slide" data-audio="audios/حصن المسلم من أذكار الكتاب والسنة (78) دعاء العطاس.mp3">
-                            <h4>دعاء العطاس</h4>
-                            <p>دعاء العطاس</p>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func71">حصن المسلم من أذكار الكتاب والسنة (71) الدعاء عند
+                                    الفراغ من الطعام</button>
                             </div>
-                        <div class="hesn-slide" data-audio="audios/حصن المسلم من أذكار الكتاب والسنة (83) دعاء الغضب.mp3">
-                            <h4>دعاء الغضب</h4>
-                            <p>دعاء لرفع الغضب</p>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func78">حصن المسلم من أذكار الكتاب والسنة (78) دعاء
+                                    العطاس</button>
                             </div>
-                        <div class="hesn-slide" data-audio="audios/حصن المسلم من أذكار الكتاب والسنة (86) كفارة المجلس.mp3">
-                            <h4>كفارة المجلس</h4>
-                            <p>كفارة المجلس</p>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func83">حصن المسلم من أذكار الكتاب والسنة (83) دعاء
+                                    الغضب</button>
                             </div>
-                        <div class="hesn-slide" data-audio="audios/حصن المسلم من أذكار الكتاب والسنة (88) الدعاء لمن صنع إليك معروفا.mp3">
-                            <h4>دعاء المعروف</h4>
-                            <p>الدعاء لمن صنع إليك معروفاً</p>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func86">حصن المسلم من أذكار الكتاب والسنة (86) كفارة
+                                    المجلس</button>
                             </div>
-                        <div class="hesn-slide" data-audio="audios/حصن المسلم من أذكار الكتاب والسنة (89) ما يعصم الله به من الدجال.mp3">
-                            <h4>حماية من الدجال</h4>
-                            <p>ما يعصم الله به من الدجال</p>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func88">حصن المسلم من أذكار الكتاب والسنة (88) الدعاء لمن
+                                    صنع إليك معروفا</button>
                             </div>
-                        <div class="hesn-slide" data-audio="audios/حصن المسلم من أذكار الكتاب والسنة (96) دعاء الركوب.mp3">
-                            <h4>دعاء الركوب</h4>
-                            <p>دعاء الركوب</p>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func89">حصن المسلم من أذكار الكتاب والسنة (89) ما يعصم الله
+                                    به من الدجال</button>
                             </div>
-                        <div class="hesn-slide" data-audio="audios/حصن المسلم من أذكار الكتاب والسنة (97) دعاء السفر.mp3">
-                            <h4>دعاء السفر</h4>
-                            <p>دعاء السفر</p>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func96">حصن المسلم من أذكار الكتاب والسنة (96) دعاء
+                                    الركوب</button>
                             </div>
-                        <div class="hesn-slide" data-audio="audios/حصن المسلم من أذكار الكتاب والسنة (98) دعاء دخول القرية أو البلدة.mp3">
-                            <h4>دعاء دخول القرية</h4>
-                            <p>دعاء دخول القرية أو البلدة</p>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func97">حصن المسلم من أذكار الكتاب والسنة (97) دعاء
+                                    السفر</button>
                             </div>
-                        <div class="hesn-slide" data-audio="audios/حصن المسلم من أذكار الكتاب والسنة (99) دعاء دخول السوق.mp3">
-                            <h4>دعاء دخول السوق</h4>
-                            <p>دعاء دخول السوق</p>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func98">حصن المسلم من أذكار الكتاب والسنة (98) دعاء دخول
+                                    القرية أو البلدة</button>
                             </div>
-                        <div class="hesn-slide" data-audio="audios/حصن المسلم من أذكار الكتاب والسنة (100) الدعاء إذا تعس المركوب.mp3">
-                            <h4>دعاء تعس المركوب</h4>
-                            <p>الدعاء إذا تعس المركوب</p>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func99">حصن المسلم من أذكار الكتاب والسنة (99) دعاء دخول
+                                    السوق</button>
                             </div>
-                        <div class="hesn-slide" data-audio="audios/حصن المسلم من أذكار الكتاب والسنة (101) دعاء المساء للمقيم.mp3">
-                            <h4>دعاء المساء</h4>
-                            <p>دعاء المساء للمقيم</p>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func100">حصن المسلم من أذكار الكتاب والسنة (100) الدعاء إذا
+                                    تعس المركوب</button>
                             </div>
-                        <div class="hesn-slide" data-audio="audios/حصن المسلم من أذكار الكتاب والسنة (103) التكبير والتسبيح في سير السفر.mp3">
-                            <h4>التكبير في السفر</h4>
-                            <p>التكبير والتسبيح في سير السفر</p>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func101">حصن المسلم من أذكار الكتاب والسنة (101) دعاء
+                                    المساء للمقيم</button>
                             </div>
-                        <div class="hesn-slide" data-audio="audios/حصن المسلم من أذكار الكتاب والسنة (106) ذكر الرجوع من السفر.mp3">
-                            <h4>ذكر الرجوع من السفر</h4>
-                            <p>ذكر الرجوع من السفر</p>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func103">حصن المسلم من أذكار الكتاب والسنة (103) التكبير
+                                    والتسبيح في سير السفر</button>
                             </div>
-                        <div class="hesn-slide" data-audio="audios/حصن المسلم من أذكار الكتاب والسنة (107) ما يقول من أتاه أمر يسره أو يكرهه.mp3">
-                            <h4>دعاء الأمر السار</h4>
-                            <p>ما يقول من أتاه أمر يسره أو يكرهه</p>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func106">حصن المسلم من أذكار الكتاب والسنة (106) ذكر الرجوع
+                                    من السفر</button>
                             </div>
-                        <div class="hesn-slide" data-audio="audios/حصن المسلم من أذكار الكتاب والسنة (108) فضل الصلاة على النبي صلى الله عليه وسلم.mp3">
-                            <h4>فضل الصلاة على النبي</h4>
-                            <p>فضل الصلاة على النبي صلى الله عليه وسلم</p>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func107">حصن المسلم من أذكار الكتاب والسنة (107) ما يقول من
+                                    أتاه أمر يسره أو يكرهه</button>
                             </div>
-                        <div class="hesn-slide" data-audio="audios/حصن المسلم من أذكار الكتاب والسنة (109) إفشاء السلام.mp3">
-                            <h4>إفشاء السلام</h4>
-                            <p>إفشاء السلام</p>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func108">حصن المسلم من أذكار الكتاب والسنة (108) فضل الصلاة
+                                    على النبي صلى الله عليه وسلم</button>
                             </div>
-                        <div class="hesn-slide" data-audio="audios/حصن المسلم من أذكار الكتاب والسنة (110) كيف يرد السلام على الكافر إذا سلم.mp3">
-                            <h4>رد السلام على الكافر</h4>
-                            <p>كيف يرد السلام على الكافر إذا سلم</p>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func109">حصن المسلم من أذكار الكتاب والسنة (109) إفشاء
+                                    السلام</button>
                             </div>
-                        <div class="hesn-slide" data-audio="audios/حصن المسلم من أذكار الكتاب والسنة (112) دعاء نباح الكلاب بالليل.mp3">
-                            <h4>دعاء نباح الكلاب</h4>
-                            <p>دعاء نباح الكلاب بالليل</p>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func110">حصن المسلم من أذكار الكتاب والسنة (110) كيف يرد
+                                    السلام على الكافر إذا سلم</button>
                             </div>
-                        <div class="hesn-slide" data-audio="audios/حصن المسلم من أذكار الكتاب والسنة (113) الدعاء لمن سببته.mp3">
-                            <h4>دعاء لمن سببته</h4>
-                            <p>الدعاء لمن سببته</p>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func112">حصن المسلم من أذكار الكتاب والسنة (112) دعاء نباح
+                                    الكلاب بالليل</button>
                             </div>
-                        <div class="hesn-slide" data-audio="audios/حصن المسلم من أذكار الكتاب والسنة (114) ما يقول المسلم إذا مدح المسلم.mp3">
-                            <h4>دعاء المدح</h4>
-                            <p>ما يقول المسلم إذا مدح المسلم</p>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func113">حصن المسلم من أذكار الكتاب والسنة (113) الدعاء لمن
+                                    سببته</button>
                             </div>
-                        <div class="hesn-slide" data-audio="audios/حصن المسلم من أذكار الكتاب والسنة (115) ما يقول المسلم إذا زكي.mp3">
-                            <h4>دعاء التزكية</h4>
-                            <p>ما يقول المسلم إذا زكي</p>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func114">حصن المسلم من أذكار الكتاب والسنة (114) ما يقول
+                                    المسلم إذا مدح المسلم</button>
                             </div>
-                        <div class="hesn-slide" data-audio="audios/حصن المسلم من أذكار الكتاب والسنة (116) كيف يلبي المحرم في الحج أو العمرة.mp3">
-                            <h4>دعاء التلبية</h4>
-                            <p>كيف يلبي المحرم في الحج أو العمرة</p>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func115">حصن المسلم من أذكار الكتاب والسنة (115) ما يقول
+                                    المسلم إذا زكي</button>
                             </div>
-                        <div class="hesn-slide" data-audio="audios/حصن المسلم من أذكار الكتاب والسنة (117) التكبير إذا أتى الركن الأسود.mp3">
-                            <h4>التكبير عند الركن</h4>
-                            <p>التكبير إذا أتى الركن الأسود</p>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func116">حصن المسلم من أذكار الكتاب والسنة (116) كيف يلبي
+                                    المحرم في الحج أو العمرة</button>
                             </div>
-                        <div class="hesn-slide" data-audio="audios/حصن المسلم من أذكار الكتاب والسنة (118) الدعاء بين الركن اليماني والحجر الأسود.mp3">
-                            <h4>دعاء بين الركنين</h4>
-                            <p>الدعاء بين الركن اليماني والحجر الأسود</p>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func117">حصن المسلم من أذكار الكتاب والسنة (117) التكبير
+                                    إذا أتى الركن الأسود</button>
                             </div>
-                        <div class="hesn-slide" data-audio="audios/حصن المسلم من أذكار الكتاب والسنة (120) الدعاء يوم عرفة (عرفه).mp3">
-                            <h4>دعاء يوم عرفة</h4>
-                            <p>الدعاء يوم عرفة</p>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func118">حصن المسلم من أذكار الكتاب والسنة (118) الدعاء بين
+                                    الركن اليماني والحجر الأسود</button>
                             </div>
-                        <div class="hesn-slide" data-audio="audios/حصن المسلم من أذكار الكتاب والسنة (121) الذكر عند المشعر الحرام.mp3">
-                            <h4>الذكر عند المشعر</h4>
-                            <p>الذكر عند المشعر الحرام</p>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func120">حصن المسلم من أذكار الكتاب والسنة (120) الدعاء يوم
+                                    عرفة (عرفه)</button>
                             </div>
-                        <div class="hesn-slide" data-audio="audios/حصن المسلم من أذكار الكتاب والسنة (122) التكبير عند رمي الجمار مع كل حصاة.mp3">
-                            <h4>التكبير عند رمي الجمار</h4>
-                            <p>التكبير عند رمي الجمار مع كل حصاة</p>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func121">حصن المسلم من أذكار الكتاب والسنة (121) الذكر عند
+                                    المشعر الحرام</button>
                             </div>
-                        <div class="hesn-slide" data-audio="audios/حصن المسلم من أذكار الكتاب والسنة (123) دعاء التعجب والأمر السار.mp3">
-                            <h4>دعاء التعجب</h4>
-                            <p>دعاء التعجب والأمر السار</p>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func122">حصن المسلم من أذكار الكتاب والسنة (122) التكبير
+                                    عند رمي الجمار مع كل حصاة</button>
                             </div>
-                        <div class="hesn-slide" data-audio="audios/حصن المسلم من أذكار الكتاب والسنة (124) ما يفعل من أتاه أمر يسره.mp3">
-                            <h4>دعاء الأمر السار</h4>
-                            <p>ما يفعل من أتاه أمر يسره</p>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func123">حصن المسلم من أذكار الكتاب والسنة (123) دعاء
+                                    التعجب والأمر السار</button>
                             </div>
-                        <div class="hesn-slide" data-audio="audios/حصن المسلم من أذكار الكتاب والسنة (125) ما يقول من أحس وجعا في جسده.mp3">
-                            <h4>دعاء الألم</h4>
-                            <p>ما يقول من أحس وجعا في جسده</p>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func124">حصن المسلم من أذكار الكتاب والسنة (124) ما يفعل من
+                                    أتاه أمر يسره</button>
                             </div>
-                        <div class="hesn-slide" data-audio="audios/حصن المسلم من أذكار الكتاب والسنة (127) ما يقال عند الفزع.mp3">
-                            <h4>دعاء الفزع</h4>
-                            <p>ما يقال عند الفزع</p>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func125">حصن المسلم من أذكار الكتاب والسنة (125) ما يقول من
+                                    أحس وجعا في جسده</button>
                             </div>
-                        <div class="hesn-slide" data-audio="audios/حصن المسلم من أذكار الكتاب والسنة (128) ما يقول عند الذبح أو النحر.mp3">
-                            <h4>دعاء الذبح</h4>
-                            <p>ما يقول عند الذبح أو النحر</p>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func127">حصن المسلم من أذكار الكتاب والسنة (127) ما يقال
+                                    عند الفزع</button>
                             </div>
-                        <div class="hesn-slide" data-audio="audios/حصن المسلم من أذكار الكتاب والسنة (129) ما يقول لرد كيد مردة الشياطين.mp3">
-                            <h4>رد كيد الشياطين</h4>
-                            <p>ما يقول لرد كيد مردة الشياطين</p>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func128">حصن المسلم من أذكار الكتاب والسنة (128) ما يقول
+                                    عند الذبح أو النحر</button>
                             </div>
-                        <div class="hesn-slide" data-audio="audios/حصن المسلم من أذكار الكتاب والسنة (130) الاستغفار والتوبة.mp3">
-                            <h4>الاستغفار والتوبة</h4>
-                            <p>الاستغفار والتوبة</p>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func129">حصن المسلم من أذكار الكتاب والسنة (129) ما يقول
+                                    لرد كيد مردة الشياطين</button>
                             </div>
-                        <div class="hesn-slide" data-audio="audios/حصن المسلم من أذكار الكتاب والسنة (131) فضل التسبيح والتحميد والتهليل والتكبير.mp3">
-                            <h4>فضل التسبيح</h4>
-                            <p>فضل التسبيح والتحميد والتهليل والتكبير</p>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func130">حصن المسلم من أذكار الكتاب والسنة (130) الاستغفار
+                                    والتوبة</button>
                             </div>
-                        <div class="hesn-slide" data-audio="audios/حصن المسلم من أذكار الكتاب والسنة (132) كيف كان النبي يسبح.mp3">
-                            <h4>كيف كان النبي يسبح</h4>
-                            <p>كيف كان النبي يسبح</p>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func131">حصن المسلم من أذكار الكتاب والسنة (131) فضل
+                                    التسبيح والتحميد والتهليل والتكبير</button>
                             </div>
-                        <div class="hesn-slide" data-audio="audios/حصن المسلم من أذكار الكتاب والسنة (133) من أنواع الخير والدواب الجامعة.mp3">
-                            <h4>أنواع الخير</h4>
-                            <p>من أنواع الخير والدواب الجامعة</p>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func132">حصن المسلم من أذكار الكتاب والسنة (132) كيف كان
+                                    النبي يسبح</button>
                             </div>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func133">حصن المسلم من أذكار الكتاب والسنة (133) من أنواع
+                                    الخير والدواب الجامعة</button>
                             </div>
-                    <div class="hesn-slider-controls">
-                        <button class="hesn-prev-btn" id="hesnPrevBtn">
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
-                        <button class="hesn-next-btn" id="hesnNextBtn">
-                            <i class="fas fa-chevron-left"></i>
-                        </button>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func32">حصن المسلم من أذكار الكتاب والسنة (32) ما يفعل من رأى الرؤيا أو الحلم</button>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func61">حصن المسلم من أذكار الكتاب والسنة (61) دعاء زيارة القبور</button>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func62">حصن المسلم من أذكار الكتاب والسنة (62) دعاء الريح</button>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func63">حصن المسلم من أذكار الكتاب والسنة (63) دعاء الرعد</button>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func64">حصن المسلم من أذكار الكتاب والسنة (64) من أدعية الاستسقاء</button>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func65">حصن المسلم من أذكار الكتاب والسنة (65) الدعاء إذا نزل المطر</button>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func66">حصن المسلم من أذكار الكتاب والسنة (66) الذكر بعد نزول المطر</button>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func67">حصن المسلم من أذكار الكتاب والسنة (67) من أدعية الاستصحاء</button>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func68">حصن المسلم من أذكار الكتاب والسنة (68) دعاء رؤية الهلال</button>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func69">حصن المسلم من أذكار الكتاب والسنة (69) الدعاء عند إفطار الصائم</button>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func70">حصن المسلم من أذكار الكتاب والسنة (70) الدعاء قبل الطعام</button>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func71">حصن المسلم من أذكار الكتاب والسنة (71) الدعاء عند الفراغ من الطعام</button>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func72">حصن المسلم من أذكار الكتاب والسنة (72) دعاء الضيف لصاحب الطعام</button>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func73">حصن المسلم من أذكار الكتاب والسنة (73) الدعاء لمن سقاه أو إذا أراد ذلك</button>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func74">حصن المسلم من أذكار الكتاب والسنة (74) الدعاء إذا أفطر عند أهل بيت</button>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func75">حصن المسلم من أذكار الكتاب والسنة (75) دعاء الصائم إذا حضر الطعام ولم يفطر</button>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func76">حصن المسلم من أذكار الكتاب والسنة (76) ما يقول الصائم إذا سابه أحد</button>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func77">حصن المسلم من أذكار الكتاب والسنة (77) الدعاء عند رؤية باكورة الثمر</button>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func78">حصن المسلم من أذكار الكتاب والسنة (78) دعاء العطاس</button>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func79">حصن المسلم من أذكار الكتاب والسنة (79) ما يقال للكافر إذا عطس فحمد الله</button>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func80">حصن المسلم من أذكار الكتاب والسنة (80) الدعاء للمتزوج</button>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func81">حصن المسلم من أذكار الكتاب والسنة (81) دعاء المتزوج وشراء الدابة</button>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func82">حصن المسلم من أذكار الكتاب والسنة (82) الدعاء قبل إتيان الزوجة</button>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func83">حصن المسلم من أذكار الكتاب والسنة (83) دعاء الغضب</button>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func84">حصن المسلم من أذكار الكتاب والسنة (84) دعاء من رأى مبتلى</button>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func85">حصن المسلم من أذكار الكتاب والسنة (85) ما يقال في المجلس</button>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func86">حصن المسلم من أذكار الكتاب والسنة (86) كفارة المجلس</button>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func87">حصن المسلم من أذكار الكتاب والسنة (87) الدعاء لمن قال غفر الله لك</button>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func88">حصن المسلم من أذكار الكتاب والسنة (88) الدعاء لمن صنع إليك معروفا</button>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func89">حصن المسلم من أذكار الكتاب والسنة (89) ما يعصم الله به من الدجال</button>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func90">حصن المسلم من أذكار الكتاب والسنة (90) الدعاء لمن قال إني أحبك في الله</button>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func91">حصن المسلم من أذكار الكتاب والسنة (91) الدعاء لمن عرض عليك ماله</button>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func92">حصن المسلم من أذكار الكتاب والسنة (92) الدعاء لمن أقرض عند القضاء</button>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func93">حصن المسلم من أذكار الكتاب والسنة (93) دعاء الخوف من الشرك</button>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func94">حصن المسلم من أذكار الكتاب والسنة (94) الدعاء لمن قال بارك الله فيك</button>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func95">حصن المسلم من أذكار الكتاب والسنة (95) دعاء كراهية الطيرة</button>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func96">حصن المسلم من أذكار الكتاب والسنة (96) دعاء الركوب</button>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func97">حصن المسلم من أذكار الكتاب والسنة (97) دعاء السفر</button>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func98">حصن المسلم من أذكار الكتاب والسنة (98) دعاء دخول القرية أو البلدة</button>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func99">حصن المسلم من أذكار الكتاب والسنة (99) دعاء دخول السوق</button>
+                            </div>
+                            
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func101">حصن المسلم من أذكار الكتاب والسنة (101) دعاء المساء للمقيم</button>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func103">حصن المسلم من أذكار الكتاب والسنة (103) التكبير والتسبيح في سير السفر</button>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func106">حصن المسلم من أذكار الكتاب والسنة (106) ذكر الرجوع من السفر</button>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <button class="hesn-btn" id="func107">حصن المسلم من أذكار الكتاب والسنة (107) ما يقول من أتاه أمر يسره أو يكرهه</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
     </section>
@@ -999,7 +1140,7 @@
                                             class="deceased-name">يوسف أحمد</span></p>
                                 </div>
                                 <div class="surah-photo">
-                                    <img src="images/fekD2AlzZmCJuF6KWCFe9NOfBA0TIF2wLg9HyNL9.jpg" alt="صورة يوسف أحمد"
+                                    <img src="images/11111.jpg" alt="صورة يوسف أحمد"
                                         class="deceased-photo">
                                 </div>
                             </div>
@@ -1075,7 +1216,7 @@
                                             أحمد</span></p>
                                 </div>
                                 <div class="interaction-photo">
-                                    <img src="images/fekD2AlzZmCJuF6KWCFe9NOfBA0TIF2wLg9HyNL9.jpg" alt="صورة يوسف أحمد"
+                                    <img src="images/11111.jpg" alt="صورة يوسف أحمد"
                                         class="deceased-photo">
                                 </div>
                             </div>
@@ -1218,6 +1359,8 @@
     </footer>
 
     <script src="bootstrap.bundle.min.js"></script>
+    <script src="hesn_buttons.js"></script>
+    <script src="hesn_audio_files.js"></script>
     <script src="script.js"></script>
     
     <!-- Service Worker Registration -->
