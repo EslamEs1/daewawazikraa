@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
     
-    const prayerCards = document.querySelectorAll(".prayer-card");
-    if (prayerCards.length > 0) {
-        // Initialize prayers with scroll functionality
-        initPrayersScroll();
+    const prayerSlides = document.querySelectorAll(".prayer-slide");
+    if (prayerSlides.length > 0) {
+        // Initialize prayers with slider functionality
+        initPrayersSlider();
     }
     // Shared data structure for all visitors
     let sharedData = {
@@ -747,44 +747,45 @@ document.addEventListener("DOMContentLoaded", function () {
     loadSharedData();
     generateSurahButtons();
     
-    // Initialize prayers scroll functionality
-    function initPrayersScroll() {
-        const prayersScroll = document.querySelector('.prayers-scroll');
-        if (prayersScroll) {
-            // Auto-scroll to next prayer every 15 seconds
-            setInterval(() => {
-                const scrollHeight = prayersScroll.scrollHeight;
-                const clientHeight = prayersScroll.clientHeight;
-                const maxScroll = scrollHeight - clientHeight;
-                
-                if (prayersScroll.scrollTop >= maxScroll) {
-                    prayersScroll.scrollTo({ top: 0, behavior: 'smooth' });
-                } else {
-                    prayersScroll.scrollBy({ top: 200, behavior: 'smooth' });
+    // Initialize prayers slider functionality
+    function initPrayersSlider() {
+        const slides = document.querySelectorAll('.prayer-slide');
+        const prevBtn = document.getElementById('prayersPrevBtn');
+        const nextBtn = document.getElementById('prayersNextBtn');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
                 }
-            }, 15000);
+            });
         }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        // Event listeners
+        if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+        if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+
+        // Auto-advance slides
+        setInterval(nextSlide, 8000);
+
+        // Show first slide
+        showSlide(0);
     }
 });
 
-// Prayers Scroll Functionality
-function initPrayersScroll() {
-    const prayersScroll = document.querySelector('.prayers-scroll');
-    if (prayersScroll) {
-        // Auto-scroll to next prayer every 15 seconds
-        setInterval(() => {
-            const scrollHeight = prayersScroll.scrollHeight;
-            const clientHeight = prayersScroll.clientHeight;
-            const maxScroll = scrollHeight - clientHeight;
-            
-            if (prayersScroll.scrollTop >= maxScroll) {
-                prayersScroll.scrollTo({ top: 0, behavior: 'smooth' });
-            } else {
-                prayersScroll.scrollBy({ top: 200, behavior: 'smooth' });
-            }
-        }, 15000);
-    }
-}
+
 
 // PWA Installation
 let deferredPrompt;
