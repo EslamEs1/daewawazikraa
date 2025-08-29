@@ -16,11 +16,52 @@
     <link rel="manifest" href="manifest.json">
     <!-- icon page-->
     <link rel="icon" href="images/fekD2AlzZmCJuF6KWCFe9NOfBA0TIF2wLg9HyNL9.jpg">
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="bootstrap.rtl.min.css" as="style">
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="local-storage.js" as="script">
+    <link rel="preload" href="script.js" as="script">
+    <link rel="preload" href="images/11111.jpg" as="image" fetchpriority="high">
+    
+    <!-- Critical CSS -->
+    <style>
+        /* Critical CSS for above-the-fold content */
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        .hero-section {
+            padding: 2rem 0;
+            text-align: center;
+        }
+        .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #1a1a1a;
+        }
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #4a4a4a;
+        }
+        .memorial-photo {
+            max-width: 200px;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+    </style>
+    
     <!-- Stylesheets -->
     <link href="bootstrap.rtl.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Preload JavaScript -->
+    <link rel="preload" href="local-storage.js" as="script">
 </head>
 
 <body class="islamic-pattern-bg">
@@ -54,7 +95,7 @@
                         </div>
 
                         <div class="main-audio-player">
-                            <audio controls class="custom-audio">
+                            <audio controls class="custom-audio" preload="metadata">
                                 <source
                                     src="audios/llmyt-__-alda-aldhy-swf-ysd-kl-myt-mn-ahbayk-__-sdqt-jaryt-__-alqary-bdaljlyl-alznaty-192-kbps.lite.mp3"
                                     type="audio/mp3">
@@ -361,7 +402,7 @@
                 <div class="col-lg-6">
                     <div class="holy-quran-image">
                         <div class="quran-frame">
-                            <img src="images/holy-quran.jpg" alt="المصحف الشريف" class="quran-img">
+                            <img src="images/holy-quran.jpg" alt="القرآن الكريم" class="card-img" loading="lazy" width="400" height="300">
                             <div class="quran-overlay">
                                 <i class="fas fa-play-circle"></i>
                             </div>
@@ -433,7 +474,7 @@
                 <div class="col-lg-6">
                     <div class="learn-image">
                         <div class="learn-frame">
-                            <img src="images/learn.webp" alt="تعلم الإسلام" class="learn-img">
+                            <img src="images/learn.webp" alt="تعلم القرآن" class="card-img" loading="lazy">
                             <div class="learn-overlay">
                                 <i class="fas fa-play-circle"></i>
                             </div>
@@ -489,7 +530,7 @@
                     <div class="heritage-image">
                         <div class="heritage-frame">
                             <img src="images/البحث في الكتب الإسلامية والتراث الإسلامي.jpg"
-                                alt="البحث في الكتب الإسلامية والتراث الإسلامي" class="heritage-img">
+                                alt="البحث في الكتب الإسلامية" class="card-img" loading="lazy">
                             <div class="heritage-overlay">
                                 <i class="fas fa-search-plus"></i>
                             </div>
@@ -538,8 +579,8 @@
                 <div class="col-lg-6">
                     <div class="library-image">
                         <div class="library-frame">
-                            <img src="images/blanket-near-books-leaves (1).jpg" alt="مكتبة البيت المسلم"
-                                class="library-img">
+                            <img src="images/blanket-near-books-leaves (1).jpg" alt="القراءة والتأمل"
+                                class="card-img" loading="lazy" width="400" height="300">
                             <div class="library-overlay">
                                 <i class="fas fa-home"></i>
                             </div>
@@ -559,7 +600,7 @@
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="library-card">
                         <div class="card-image">
-                            <img src="images/Tajweed rules.jpg" alt="أحكام التجويد">
+                            <img src="images/Tajweed rules.jpg" alt="أحكام التجويد" class="card-img" loading="lazy">
                         </div>
                         <div class="card-content">
                             <h4>أحكام التجويد</h4>
@@ -575,7 +616,7 @@
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="library-card">
                         <div class="card-image">
-                            <img src="images/Hajj and Umrah.jpg" alt="الحج والعمرة">
+                            <img src="images/Hajj and Umrah.jpg" alt="الحج والعمرة" class="card-img" loading="lazy">
                         </div>
                         <div class="card-content">
                             <h4>الحج والعمرة</h4>
@@ -588,7 +629,7 @@
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="library-card">
                         <div class="card-image">
-                            <img src="images/تفسير القرآن.jpg" alt="تفسير القرآن">
+                            <img src="images/تفسير القرآن.jpg" alt="تفسير القرآن" class="card-img" loading="lazy">
                         </div>
                         <div class="card-content">
                             <h4>تفسير القرآن الكريم</h4>
@@ -604,7 +645,7 @@
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="library-card">
                         <div class="card-image">
-                            <img src="images/الفقه الميسر في ضوء الكتاب والسنة.jpg" alt="الفقه الميسر">
+                            <img src="images/الفقه الميسر في ضوء الكتاب والسنة.jpg" alt="الفقه الميسر" class="card-img" loading="lazy">
                         </div>
                         <div class="card-content">
                             <h4>الفقه الميسر</h4>
@@ -794,12 +835,11 @@
                 </div>
             </div>
 
+            <!-- Audio Player for Hesn Muslim -->
             <div class="audio-player-container">
-                <div class="current-playing">
-                    <strong id="playerName">اختر من القائمة أدناه</strong>
-                </div>
-                <audio controls id="musicPlayer" class="custom-audio">
-                    <source src="#" type="audio/mp3">
+                <h4 id="playerName">اختر ذكراً للاستماع</h4>
+                <audio id="musicPlayer" controls preload="none" class="custom-audio">
+                    متصفحك لا يدعم تشغيل الصوت
                 </audio>
             </div>
 
@@ -1358,16 +1398,18 @@
         </div>
     </footer>
 
-    <script src="bootstrap.bundle.min.js"></script>
-    <script src="hesn_buttons.js"></script>
-    <script src="hesn_audio_files.js"></script>
-    <script src="script.js"></script>
+    <!-- Load JavaScript with defer to improve page load performance -->
+    <script src="local-storage.js" defer></script>
+    <script src="bootstrap.bundle.min.js" defer></script>
+    <script src="hesn_buttons.js" defer></script>
+    <script src="hesn_audio_files.js" defer></script>
+    <script src="script.js" defer></script>
     
     <!-- Service Worker Registration -->
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
+                navigator.serviceWorker.register('sw.js')
                     .then((registration) => {
                         console.log('SW registered: ', registration);
                     })
